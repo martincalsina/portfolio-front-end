@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+    background: linear-gradient(to top right, #0172bd 0%, #000066 100%);
+}
+
+* {
+    color:rgb(245, 255, 255);
+}
+
+hr {
+    color: #ff00d9;
+    border-color: #ff00ea;
+    background-color: #ff00ea;
+}
+
+.section-separator {
+    height: 2px;
+}

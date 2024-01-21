@@ -1,0 +1,25 @@
+
+
+.container-fluid {
+    margin: 5px 0 5px 0;
+}
+
+.nav-item,
+a {
+    transition: 0.2s ease-in-out;
+
+}
+
+.nav-item:hover {
+    transform: scale(1.10);
+}
+
+.nav-item:hover a {
+    color:rgb(195, 0, 255);
+}
+
+.sections-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}

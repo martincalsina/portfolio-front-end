@@ -1,0 +1,29 @@
+.section-separator {
+    height: 2px;
+}
+
+.list-group {
+    border-radius: 5px;
+}
+
+.skill-list,
+.list-group-item {
+    background-color: rgba(51, 48, 48, 0.384);
+}
+
+.list-group-item {
+    transition: 0.1s ease-in-out;
+}
+
+.list-group-item:hover {
+    transform: scale(1.05);
+} 
+
+.skill-title,
+.skill-description {
+    margin-top: 5px;
+}
+
+.skill-icon {
+    font-size: 1.3em;
+}

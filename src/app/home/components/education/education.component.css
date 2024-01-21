@@ -1,0 +1,17 @@
+.section-separator {
+    height: 2px;
+}
+
+.list-group {
+    border-radius: 5px;
+}
+
+.education-list,
+.list-group-item {
+    background-color: rgba(51, 48, 48, 0.384);
+}
+
+.education-title,
+.education-description {
+    margin-top: 5px;
+}
