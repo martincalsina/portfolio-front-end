@@ -5,7 +5,8 @@
     transition: 0.2s ease-in-out;
 }
 
-.network-item:hover {
+.network-item:hover,
+.network-item:active {
     transform: scale(1.10);
 }
 

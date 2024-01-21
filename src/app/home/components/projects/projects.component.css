@@ -2,7 +2,9 @@
     transition: transform 0.3s ease-in-out
 }
 
-.card:hover {
+.card:hover,
+.card:active,
+.card:focus {
     transform: scale(1.05);
 }
 
@@ -13,9 +15,8 @@
     transition: 0.3s ease-in-out;
 }
 
-
 .card-img-overlay:hover {
-    filter: brightness(70%);
+    color:#fff;
 }
 
 .card-body,

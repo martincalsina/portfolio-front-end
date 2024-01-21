@@ -1,5 +1,4 @@
 
-
 .container-fluid {
     margin: 5px 0 5px 0;
 }
@@ -10,13 +9,16 @@ a {
 
 }
 
-.nav-item:hover {
+.nav-item:hover, image:hover {
     transform: scale(1.10);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.089); /* Ajusta el color y la intensidad del brillo */
 }
 
 .nav-item:hover a {
     color:rgb(195, 0, 255);
 }
+
+
 
 .sections-container {
     display: flex;

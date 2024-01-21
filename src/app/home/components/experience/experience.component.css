@@ -11,6 +11,17 @@
     background-color: rgba(51, 48, 48, 0.384);
 }
 
+.list-group-item {
+    transition: 0.2s ease-in-out;
+}
+
+.list-group-item:hover,
+.list-group-item:active {
+    transform: scale(1.05);
+    background-color: black;
+    border: none;
+}
+
 .experience-title,
 .experience-description {
     margin-top: 5px;
