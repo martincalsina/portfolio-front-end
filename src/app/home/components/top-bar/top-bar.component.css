@@ -18,6 +18,9 @@ a {
     color:rgb(195, 0, 255);
 }
 
+.nav-link:hover {
+    cursor:pointer;
+}
 
 
 .sections-container {

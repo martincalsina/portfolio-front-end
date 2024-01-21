@@ -11,6 +11,7 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NetworkComponent } from './components/network/network.component';
+import { EditUserProfileComponent } from './modals/user-profile/edit-user-profile/edit-user-profile.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { NetworkComponent } from './components/network/network.component';
     SkillsComponent,
     ProjectsComponent,
     FooterComponent,
-    NetworkComponent
+    NetworkComponent,
+    EditUserProfileComponent
   ],
   imports: [
     CommonModule,

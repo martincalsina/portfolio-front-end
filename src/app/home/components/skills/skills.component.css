@@ -27,6 +27,15 @@
     margin-top: 5px;
 }
 
+.skill-name-container {
+    width: 100%;
+}
+
+.edit-delete-btns-container {
+    width: 20%;
+    margin: auto;
+}
+
 .skill-icon {
     font-size: 1.3em;
 }

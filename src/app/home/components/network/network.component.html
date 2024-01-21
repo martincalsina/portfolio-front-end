@@ -1,32 +1,69 @@
 <section id="network" class="container mt-5">
 
-    <h3>Network</h3>
+    <div class="network-title d-flex justify-content-between">
+        <h3>Network</h3>
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addNetwork">
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
 
     <hr class="section-separator">
 
     <div class="row d-flex justify-content-evenly">
 
-        <div class="col-ms-6 col-md-3 network-item mt-2">
+        <div class="col-ms-6 col-md-3 d-flex flex-column align-items-center network-item mt-2">
             <div class="network-icon-container bg-dark">
                 <i class="fa fa-github text-light"></i>
             </div>
+            <div class="mt-2 d-flex justify-content-evenly">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editNetwork">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteNetwork">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </div>
         </div>
 
-        <div class="col-ms-6  col-md-3 network-item mt-2">
+        <div class="col-ms-6 col-md-3 d-flex flex-column align-items-center network-item mt-2">
             <div class="network-icon-container bg-primary">
                 <i class="fa fa-linkedin text-ligth"></i>
             </div>
-        </div>
-
-        <div class="col-ms-6  col-md-3 network-item mt-2">
-            <div class="network-icon-container">
-                <i class="fa fa-envelope text-ligth"></i>
+            <div class="mt-2 d-flex justify-content-evenly">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editNetwork">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteNetwork">
+                    <i class="fa fa-trash"></i>
+                </button>
             </div>
         </div>
 
-        <div class="col-ms-6 col-md-3 network-item mt-2">
+        <div class="col-ms-6 d-flex flex-column align-items-center col-md-3 network-item mt-2">
+            <div class="network-icon-container">
+                <i class="fa fa-envelope text-ligth"></i>
+            </div>
+            <div class="mt-2 d-flex justify-content-evenly">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editNetwork">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteNetwork">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="col-ms-6 col-md-3 d-flex flex-column align-items-center network-item mt-2">
             <div class="network-icon-container bg-light">
                 <i class="fa fa-telegram text-primary"></i>
+            </div>
+            <div class="mt-2 d-flex justify-content-evenly">
+                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editNetwork">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteNetwork">
+                    <i class="fa fa-trash"></i>
+                </button>
             </div>
         </div>
 
