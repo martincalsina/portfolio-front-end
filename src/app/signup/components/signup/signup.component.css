@@ -11,3 +11,9 @@
 .form-invalid {
     color: rgb(203, 27, 27);
 }
+
+.usuarioCreado {
+    width: 95%;
+    margin: auto;
+    margin-bottom: 10px;
+}
