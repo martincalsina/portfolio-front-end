@@ -24,7 +24,7 @@
             </div>
             <div>
                 <span class="education-date badge rounded-pill">
-                    From {{ education.getStartDate() | date }}{{ education.getEndDate() ? ' To ' + (education.getEndDate() | date) : ' To Present' }}
+                    From {{ education.getStartDate() | date:'MMM, y' }}{{ education.getEndDate() ? ' To ' + (education.getEndDate() | date:'MMM, y') : ' To Present' }}
                 </span>
                 <div class="d-flex justify-content-evenly mt-2">
                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editEducation">

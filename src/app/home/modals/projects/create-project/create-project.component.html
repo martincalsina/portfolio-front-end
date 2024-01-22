@@ -1,39 +1,53 @@
-  
-  <div class="modal fade" id="addProject" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
+<div class="modal fade" id="addProject" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <form [formGroup]="projectForm!" (ngSubmit)="onSubmit()">
+
         <div class="modal-header">
           <h1 class="modal-title fs-5">Add Project</h1>
           <button type="button" class="btn-close btn-lig" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
 
-          <form>
-            <div class="mb-3">
-              <label for="name" class="form-label">Name</label>
-              <input type="text" class="form-control" id="name" name="name" placeholder="CRUD App">
-            </div>
-            <div class="mb-3">
-                <label for="picture" class="form-label">Picture URL</label>
-                <input type="text" class="form-control" id="picture" name="picture" placeholder="https://drive...">
-            </div>
-            <div class="mb-3">
-                <label for="url" class="form-label">Project URL</label>
-                <input type="text" class="form-control" id="url" name="url" placeholder="https://github...">
-            </div>
-            <div class="mb-3">
-              <label for="description" class="form-label">Description</label>
-              <textarea class="form-control" placeholder="Tell people what it is about!" id="description" name="description" 
-              style="height: 100px"></textarea>
-            </div>
-          
-          </form>
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input formControlName="name"
+            type="text" class="form-control" id="name" name="name" placeholder="CRUD App"
+            [class.is-valid]="touchedAndValid('name')"
+            [class.is-invalid]="touchedAndInvalid('name')">
+          </div>
+          <div class="mb-3">
+            <label for="picture" class="form-label">Picture URL</label>
+            <input formControlName="picture"
+            type="text" class="form-control" id="picture" name="picture" placeholder="https://drive..."
+            [class.is-valid]="touchedAndValid('picture')"
+            [class.is-invalid]="touchedAndInvalid('picture')">
+          </div>
+          <div class="mb-3">
+            <label for="url" class="form-label">Project URL</label>
+            <input formControlName="url"
+            type="text" class="form-control" id="url" name="url" placeholder="https://github..."
+            [class.is-valid]="touchedAndValid('url')"
+            [class.is-invalid]="touchedAndInvalid('url')">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea formControlName="description"
+            class="form-control" placeholder="Tell people what it is about!" id="description"
+              name="description" style="height: 100px"
+              [class.is-valid]="touchedAndValid('description')"
+            [class.is-invalid]="touchedAndInvalid('description')"></textarea>
+          </div>
 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
+          <button type="submit" class="btn btn-primary">Understood</button>
         </div>
-      </div>
+
+      </form>
     </div>
   </div>
+</div>

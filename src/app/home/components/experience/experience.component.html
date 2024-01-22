@@ -22,7 +22,7 @@
                 </div>
                 <div>
                     <span class="experience-date badge rounded-pill">
-                        From {{ experience.getStartDate() | date }}{{ experience.getEndDate() ? ' To ' + (experience.getEndDate() | date) : ' To Present' }}
+                        From {{ experience.getStartDate() | date:'MMM, y' }}{{ experience.getEndDate() ? ' To ' + (experience.getEndDate() | date:'MMM, y') : ' To Present' }}
                     </span>
                     <div class="d-flex justify-content-evenly mt-2">
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editEducation">

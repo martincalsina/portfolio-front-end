@@ -54,6 +54,8 @@ export class HomeComponent implements OnInit{
         console.log("network", this.networkData);
         */
 
+        sessionStorage.setItem("userId", this.userId?.toString());
+
       }, error => {
         console.log("There is no user with the given id", error);
       });

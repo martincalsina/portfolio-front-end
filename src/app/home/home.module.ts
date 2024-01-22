@@ -17,6 +17,7 @@ import { CreateExperienceComponent } from './modals/experience/create-experience
 import { CreateSkillComponent } from './modals/skills/create-skill/create-skill.component';
 import { CreateProjectComponent } from './modals/projects/create-project/create-project.component';
 import { CreateNetworkComponent } from './modals/network/create-network/create-network.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -35,11 +36,13 @@ import { CreateNetworkComponent } from './modals/network/create-network/create-n
     CreateExperienceComponent,
     CreateSkillComponent,
     CreateProjectComponent,
-    CreateNetworkComponent
+    CreateNetworkComponent,
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class HomeModule { }

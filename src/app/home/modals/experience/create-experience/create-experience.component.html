@@ -2,48 +2,66 @@
   <div class="modal fade" id="addExperience" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5">Add Experience</h1>
-          <button type="button" class="btn-close btn-lig" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-
-          <form>
+        <form [formGroup]="experienceForm!" (ngSubmit)="onSubmit()">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Add Experience</h1>
+            <button type="button" class="btn-close btn-lig" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+        
+        
             <div class="mb-3">
               <label for="institution" class="form-label">Institution or Company</label>
-              <input type="text" class="form-control" id="institution" name="institution" placeholder="Amazon">
+              <input formControlName="institution"
+              type="text" class="form-control" id="institution" name="institution" placeholder="Amazon"
+              [class.is-valid]="touchedAndValid('institution')"
+              [class.is-invalid]="touchedAndInvalid('institution')">
             </div>
             <div class="mb-3">
               <label for="position" class="form-label">Position</label>
-              <input type="text" class="form-control" id="positon" name="position" placeholder="Data Scientist">
+              <input formControlName="position"
+              type="text" class="form-control" id="positon" name="position" placeholder="Data Scientist Jr"
+              [class.is-valid]="touchedAndValid('position')"
+              [class.is-invalid]="touchedAndInvalid('position')">
             </div>
             <div class="mb-3">
-                <label for="startDate" class="form-label">Start Date</label>
-                <input type="date" class="form-control" id="startDate" name="startDate">
+              <label for="startDate" class="form-label">Start Date</label>
+              <input formControlName="startDate"
+              type="date" class="form-control" id="startDate" name="startDate"
+              [class.is-valid]="touchedAndValid('startDate')"
+              [class.is-invalid]="touchedAndInvalid('startDate')">
             </div>
             <div class="mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="isWorking" name="isWorking">
-                <label style="margin-left: 5px;" class="form-check-label" for="isWorking">
-                  I am still working here.
-                </label>              
+              <input formControlName="isWorking" 
+              class="form-check-input" type="checkbox" value="" id="isWorking" name="isWorking">
+              <label style="margin-left: 5px;" class="form-check-label" for="isWorking">
+                I'm currently working here.
+              </label>
             </div>
-            <div class="mb-3">
-                <label for="endDate" class="form-label">End Date</label>
-                <input type="date" class="form-control" id="endDate" name="endDate">
+            <div *ngIf="!experienceForm?.value.isWorking" class="mb-3">
+              <label for="endDate" class="form-label">End Date</label>
+              <input formControlName="endDate" 
+              type="date" class="form-control" id="endDate" name="endDate"
+              [class.is-valid]="touchedAndValid('endDate')"
+              [class.is-invalid]="touchedAndInvalid('endDate')">
             </div>
             <div class="mb-3">
               <label for="description" class="form-label">Description</label>
-              <textarea class="form-control" placeholder="Tell people something about it!" id="description" name="description" 
-              style="height: 100px"></textarea>
+              <textarea formControlName="description"
+              class="form-control" placeholder="Tell people something about it!" id="description" name="description"
+                style="height: 100px"
+                [class.is-valid]="touchedAndValid('description')"
+                [class.is-invalid]="touchedAndInvalid('description')"></textarea>
             </div>
-          
-          </form>
-
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
-        </div>
+        
+        
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Understood</button>
+          </div>
+        
+        </form>
       </div>
     </div>
   </div>
