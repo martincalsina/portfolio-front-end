@@ -43,4 +43,8 @@ export class Project {
         return this.userId;
     }
 
+    public setPicture(picture: string): void {
+        this.picture = picture;
+    }
+
 }

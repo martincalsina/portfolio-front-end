@@ -10,18 +10,20 @@
     <hr class="section-separator">
 
     <ul class="experience-list list-group list-group-flush">
-        <li class="list-group-item d-flex justify-content-between align-items-start">
+        <li *ngFor="let experience of experiences" class="list-group-item d-flex justify-content-between align-items-start">
                 <div class="ms-2 me-auto">
                     <div class="experience-institution fw-bold">
-                        <i class="fa fa-solid fa-industry"></i> Batallón de Infantería MI-5 de la Armada
+                        <i class="fa fa-solid fa-industry"></i> {{experience.getIntitution()}}
                     </div>
                     <div class="experience-title fw-semibold">
-                        <i class="fa-solid fa-helmet-safety"></i> Asistente en comedia
+                        <i class="fa-solid fa-helmet-safety"></i> {{experience.getPosition()}}
                     </div>
-                    <p class="experience-description text-wrap">asdasdsa</p>
+                    <p class="experience-description text-wrap">{{experience.getDescription()}}</p>
                 </div>
                 <div>
-                    <span class="education-date badge rounded-pill">From 01-2018 To 12-2022</span>
+                    <span class="experience-date badge rounded-pill">
+                        From {{ experience.getStartDate() | date }}{{ experience.getEndDate() ? ' To ' + (experience.getEndDate() | date) : ' To Present' }}
+                    </span>
                     <div class="d-flex justify-content-evenly mt-2">
                         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editEducation">
                             <i class="fa fa-pencil"></i>
@@ -31,28 +33,6 @@
                         </button>
                     </div>
                 </div>
-        </li>
-        <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-                <div class="experience-institution fw-bold"> 
-                    <i class="fa fa-solid fa-industry"></i> Estudiante de Álgebra 1
-                </div>
-                <div class="experience-title fw-semibold">
-                    <i class="fa-solid fa-helmet-safety"></i> Catador de Alfajores
-                </div>
-                <p class="experience-description text-wrap">asdasdsa</p>
-            </div>
-            <div>
-                <span class="experience-date badge rounded-pill">From 01-2018 To 12-2022</span>
-                <div class="d-flex justify-content-evenly mt-2">
-                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editExperience">
-                        <i class="fa fa-pencil"></i>
-                    </button>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteExperience">
-                        <i class="fa fa-trash"></i>
-                    </button>
-                </div>
-            </div>
         </li>
     </ul>
 

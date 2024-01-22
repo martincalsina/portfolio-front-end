@@ -5,11 +5,11 @@ export class Education {
     private title: string;
     private description: string;
     private startDate: Date;
-    private endDate: Date;
+    private endDate: Date | null;
     private userId: number;
         
     constructor(id: number, institution: string, title: string, 
-               description: string, startDate: Date, endDate: Date, userId: number) {
+               description: string, startDate: Date, endDate: Date | null, userId: number) {
 
         this.id = id;
         this.institution = institution;
@@ -41,7 +41,7 @@ export class Education {
         return this.startDate;
     }
 
-    public getEndDate(): Date {
+    public getEndDate(): Date | null {
         return this.endDate;
     }
 

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { User } from '../model/User';
 import { Education } from '../model/Education';
 import { Experience } from '../model/Experience';
@@ -15,8 +15,48 @@ export class DataService {
 
   private backendUrl: string ='http://localhost:8080'; //local
 
+  private userSubject: Subject<any> = new Subject<void>();
+  private educationSubject: Subject<any> = new Subject<void>();
+  private experienceSubject: Subject<any> = new Subject<void>();
+  private skillsSubject: Subject<any> = new Subject<void>();
+  private projectsSubject: Subject<any> = new Subject<void>();
+  private networkSubject: Subject<any> = new Subject<void>();
+
+  private loadingSubject: Subject<boolean> = new Subject<boolean>();
+
   constructor(private http: HttpClient) {
   }
+
+  //get subject
+
+  getUserSubject(): Subject<any> {
+    return this.userSubject;
+  }
+
+  getEducationSubject(): Subject<any> {
+    return this.educationSubject;
+  }
+
+  getExperienceSubject(): Subject<any> {
+    return this.experienceSubject;
+  }
+
+  getSkillsSubject(): Subject<any> {
+    return this.skillsSubject;
+  }
+
+  getProjectsSubject(): Subject<any> {
+    return this.projectsSubject;
+  }
+
+  getNetworkSubject(): Subject<any> {
+    return this.networkSubject;
+  }
+
+  getLoadingSubject(): Subject<boolean> {
+    return this.loadingSubject;
+  }
+
 
   //user methods
 

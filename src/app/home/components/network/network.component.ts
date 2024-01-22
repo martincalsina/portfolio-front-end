@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Network } from '../../../model/Network';
 
 @Component({
   selector: 'app-network',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './network.component.css'
 })
 export class NetworkComponent {
+
+  @Input() networks?: Network[];
 
 }

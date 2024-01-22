@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Education } from '../../../model/Education';
 
 @Component({
   selector: 'app-education',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './education.component.css'
 })
 export class EducationComponent {
+
+  @Input() educations?: Education[];
 
 }

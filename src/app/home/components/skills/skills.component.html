@@ -16,23 +16,13 @@
             <h5>Technical Skills</h5>
 
             <ul class="skill-list list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="skill-name fw-bold"> 
-                            <i class="skill-icon fa fa-solid fa-java text-warning"></i> Java Backend Development
-                        </div>
-                        <p class="skill-description text-wrap">
-                            API Rest using Spring Boot and MVC pattern 
-                        </p>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
+                <li *ngFor="let skill of hardSkills" class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
 
                         <div class="skill-name-container d-flex justify-content-between">
 
                             <div class="skill-name fw-bold"> 
-                                <i class="skill-icon  fa fa-solid fa-angular text-danger"></i> Angular Frontend Development
+                                <i [ngClass]="skill.getIcon()" class="skill-icon fa fa-solid fa-angular text-danger"></i> {{skill.getName()}}
                             </div>
 
                             <div class="edit-delete-btns-container d-flex justify-content-evenly">
@@ -45,7 +35,7 @@
                             </div>
 
                         </div>
-                        <p class="skill-description text-wrap">la wea fome</p>
+                        <p class="skill-description text-wrap">{{skill.getDescription()}}</p>
                     </div>
                 </li>
             </ul>
@@ -57,20 +47,13 @@
             <h5>Soft Skills</h5>
 
             <ul class="skill-list list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between align-items-start">
+                <li *ngFor="let skill of softSkills" class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
-                        <div class="skill-name fw-bold"> 
-                            <i class="skill-icon  fa fa-regular fa-comments"></i> English
-                        </div>
-                        <p class="skill-description text-wrap"> Conversational basldansfnalsd </p>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
+
                         <div class="skill-name-container d-flex justify-content-between">
 
                             <div class="skill-name fw-bold"> 
-                                <i class="skill-icon  fa fa-solid fa-angular text-danger"></i> Angular Frontend Development
+                                <i [ngClass]="skill.getIcon()" class="skill-icon fa fa-solid fa-angular text-danger"></i> {{skill.getName()}}
                             </div>
 
                             <div class="edit-delete-btns-container d-flex justify-content-evenly">
@@ -83,7 +66,7 @@
                             </div>
 
                         </div>
-                        <p class="skill-description text-wrap">la wea fome</p>
+                        <p class="skill-description text-wrap">{{skill.getDescription()}}</p>
                     </div>
                 </li>
             </ul>

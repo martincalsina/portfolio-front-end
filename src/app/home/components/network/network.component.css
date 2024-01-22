@@ -17,6 +17,10 @@
     justify-content: center;
 }
 
+.network-icon-container i {
+    border-radius: 5px;
+}
+
 .network-icon-container:hover {
     cursor: pointer;
 }
