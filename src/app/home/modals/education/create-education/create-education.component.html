@@ -1,0 +1,49 @@
+  
+  <div class="modal fade" id="addEducation" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" >Add Education</h1>
+          <button type="button" class="btn-close btn-lig" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <form>
+            <div class="mb-3">
+              <label for="institution" class="form-label">Institution</label>
+              <input type="text" class="form-control" id="institution" name="institution" placeholder="University of Buenos Aires">
+            </div>
+            <div class="mb-3">
+              <label for="title" class="form-label">Title or Certification</label>
+              <input type="text" class="form-control" id="title" name="title" placeholder="Bachelor in Computer Science">
+            </div>
+            <div class="mb-3">
+                <label for="startDate" class="form-label">Start Date</label>
+                <input type="date" class="form-control" id="startDate" name="startDate">
+            </div>
+            <div class="mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="isStudying" name="isStudying">
+                <label style="margin-left: 5px;" class="form-check-label" for="isStudying">
+                  I am still studying.
+                </label>              
+            </div>
+            <div class="mb-3">
+                <label for="endDate" class="form-label">End Date</label>
+                <input type="date" class="form-control" id="endDate" name="endDate">
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <textarea class="form-control" placeholder="Tell people something about it!" id="description" name="description" 
+              style="height: 100px"></textarea>
+            </div>
+          
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -12,6 +12,11 @@ import { ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NetworkComponent } from './components/network/network.component';
 import { EditUserProfileComponent } from './modals/user-profile/edit-user-profile/edit-user-profile.component';
+import { CreateEducationComponent } from './modals/education/create-education/create-education.component';
+import { CreateExperienceComponent } from './modals/experience/create-experience/create-experience.component';
+import { CreateSkillComponent } from './modals/skills/create-skill/create-skill.component';
+import { CreateProjectComponent } from './modals/projects/create-project/create-project.component';
+import { CreateNetworkComponent } from './modals/network/create-network/create-network.component';
 
 
 @NgModule({
@@ -25,7 +30,12 @@ import { EditUserProfileComponent } from './modals/user-profile/edit-user-profil
     ProjectsComponent,
     FooterComponent,
     NetworkComponent,
-    EditUserProfileComponent
+    EditUserProfileComponent,
+    CreateEducationComponent,
+    CreateExperienceComponent,
+    CreateSkillComponent,
+    CreateProjectComponent,
+    CreateNetworkComponent
   ],
   imports: [
     CommonModule,
