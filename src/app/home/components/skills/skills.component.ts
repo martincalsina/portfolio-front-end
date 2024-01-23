@@ -18,13 +18,10 @@ export class SkillsComponent implements OnChanges {
     this.separateHardAndSoftSkills();
   }
 
-  changeSelectedSkill(index: number, isSoft: boolean) {
+  changeSelectedSkill(skill: Skill) {
 
-    if (isSoft) {
-      this.selectedSkill = this.softSkills[index];
-    } else {
-      this.selectedSkill = this.hardSkills[index];
-    }
+    this.selectedSkill = skill;
+    
   }
 
   private separateHardAndSoftSkills() {

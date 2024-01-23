@@ -12,8 +12,8 @@ export class ExperienceComponent {
 
   selectedExperience?: Experience;
 
-  changeSelectedExperience(index: number): void {
-    this.selectedExperience = this.experiences![index];
+  changeSelectedExperience(experience: Experience): void {
+    this.selectedExperience = experience;
   }
 
 }

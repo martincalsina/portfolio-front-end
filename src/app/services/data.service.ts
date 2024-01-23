@@ -117,6 +117,10 @@ export class DataService {
 
     });
   }
+  
+  deleteEducation(id: number): Observable<any> {
+    return this.http.delete(`${this.backendUrl}/education/delete/${id}`);
+  } 
 
   //experience methods
 
@@ -144,6 +148,10 @@ export class DataService {
     });
   }
 
+  deleteExperience(id: number): Observable<any> {
+    return this.http.delete(`${this.backendUrl}/experience/delete/${id}`);
+  }
+
   //skills methods
 
   getSkillById(id: number): Observable<any> {
@@ -166,6 +174,10 @@ export class DataService {
       description: skill.getDescription(),
       isSoft: skill.getIsSoft()
     });
+  }
+
+  deleteSkill(id: number): Observable<any> {
+    return this.http.delete(`${this.backendUrl}/skill/delete/${id}`);
   }
   
   //project methods
@@ -192,6 +204,10 @@ export class DataService {
     });
   }
 
+  deleteProject(id: number): Observable<any> {
+    return this.http.delete(`${this.backendUrl}/project/delete/${id}`);
+  }
+
 
   //network methods
 
@@ -214,6 +230,10 @@ export class DataService {
       icon: network.getIcon(),
       url: network.getUrl()
     });
+  }
+
+  deleteNetwork(id: number): Observable<any> {
+    return this.http.delete(`${this.backendUrl}/network/delete/${id}`);
   }
 
 

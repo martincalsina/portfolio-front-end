@@ -23,6 +23,11 @@ import { EditExperienceComponent } from './modals/experience/edit-experience/edi
 import { EditSkillComponent } from './modals/skills/edit-skill/edit-skill.component';
 import { EditProjectComponent } from './modals/projects/edit-project/edit-project.component';
 import { EditNetworkComponent } from './modals/network/edit-network/edit-network.component';
+import { DeleteEducationComponent } from './modals/education/delete-education/delete-education.component';
+import { DeleteExperienceComponent } from './modals/experience/delete-experience/delete-experience.component';
+import { DeleteSkillComponent } from './modals/skills/delete-skill/delete-skill.component';
+import { DeleteProjectComponent } from './modals/projects/delete-project/delete-project.component';
+import { DeleteNetworkComponent } from './modals/network/delete-network/delete-network.component';
 
 
 @NgModule({
@@ -47,6 +52,11 @@ import { EditNetworkComponent } from './modals/network/edit-network/edit-network
     EditSkillComponent,
     EditProjectComponent,
     EditNetworkComponent,
+    DeleteEducationComponent,
+    DeleteExperienceComponent,
+    DeleteSkillComponent,
+    DeleteProjectComponent,
+    DeleteNetworkComponent,
   ],
   imports: [
     CommonModule,

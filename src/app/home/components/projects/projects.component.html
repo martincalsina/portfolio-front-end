@@ -11,11 +11,11 @@
 
     <div class="row row-cols-1 row-cols-md-3 mt-1 g-4">
 
-        <div *ngFor="let project of projects; let i = index" class="col">
+        <div *ngFor="let project of projects" class="col">
             <div class="card">
                 <div class="position-relative">
                     <img [src]="project.getPicture()" class="card-img-top image-hover"
-                    (error)="handleImageError(i)">
+                    (error)="handleImageError(project)">
                     <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
                         <h5 class="card-title text-white">{{project.getName()}}</h5>
                     </div>
@@ -30,11 +30,12 @@
                         </a>
                     </div>
                     <div class="btn-group" role="group">
-                        <button (click)="changeSelectedProject(i)"
+                        <button (click)="changeSelectedProject(project)"
                         type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editProject">
                             <i class="fa fa-pencil"></i>
                         </button>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteProject">
+                        <button (click)="changeSelectedProject(project)"
+                        type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteProject">
                             <i class="fa fa-trash"></i>
                         </button>
                     </div>
@@ -52,3 +53,4 @@
 <!--MODALS-->
 <app-create-project></app-create-project>
 <app-edit-project [projectToEdit]="selectedProject"></app-edit-project>
+<app-delete-project [projectToDelete]="selectedProject"></app-delete-project>

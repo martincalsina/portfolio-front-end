@@ -10,7 +10,7 @@
     <hr class="section-separator">
 
     <ul class="education-list list-group list-group-flush">
-        <li *ngFor="let education of educations; let i = index" class="list-group-item d-flex justify-content-between align-items-start">
+        <li *ngFor="let education of educations" class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
                 <div class="education-institution fw-bold"> 
                     <i class="fa fa-solid fa-school"></i> {{education.getInstitution()}}
@@ -27,11 +27,12 @@
                     From {{ education.getStartDate() | date:'MMM, y' }}{{ education.getEndDate() ? ' To ' + (education.getEndDate() | date:'MMM, y') : ' To Present' }}
                 </span>
                 <div class="d-flex justify-content-evenly mt-2">
-                    <button (click)="changeSelectedEducation(i)"
+                    <button (click)="changeSelectedEducation(education)"
                     type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editEducation">
                         <i class="fa fa-pencil"></i>
                     </button>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteEducation">
+                    <button (click)="changeSelectedEducation(education)"
+                    type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteEducation">
                         <i class="fa fa-trash"></i>
                     </button>
                 </div>
@@ -44,3 +45,4 @@
 <!--MODALS-->
 <app-create-education></app-create-education>
 <app-edit-education [educationToEdit]="selectedEducation"></app-edit-education>
+<app-delete-education [educationToDelete]="selectedEducation"></app-delete-education>

@@ -12,12 +12,12 @@ export class ProjectsComponent {
 
   selectedProject?: Project;
 
-  changeSelectedProject(index: number): void {
-    this.selectedProject = this.projects![index];
+  changeSelectedProject(project: Project): void {
+    this.selectedProject = project;
   }
 
-  handleImageError(i: number): void {
-        this.projects![i].setPicture("../../../../assets/martin_icon.png");
+  handleImageError(project: Project): void {
+    project.setPicture("../../../../assets/martin_icon.png");
   }
 
 }

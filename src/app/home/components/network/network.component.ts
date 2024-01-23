@@ -12,8 +12,8 @@ export class NetworkComponent {
 
   selectedNetwork?: Network;
 
-  changeSelectedNetwork(index: number): void {
-    this.selectedNetwork = this.networks![index];
+  changeSelectedNetwork(network: Network): void {
+    this.selectedNetwork = network;
   }
 
 }

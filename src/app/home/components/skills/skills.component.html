@@ -16,7 +16,7 @@
             <h5>Technical Skills</h5>
 
             <ul class="skill-list list-group list-group-flush">
-                <li *ngFor="let skill of hardSkills; let i = index" class="list-group-item d-flex justify-content-between align-items-start">
+                <li *ngFor="let skill of hardSkills" class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
 
                         <div class="skill-name-container d-flex justify-content-between">
@@ -26,11 +26,12 @@
                             </div>
 
                             <div class="edit-delete-btns-container d-flex justify-content-evenly">
-                                <button (click)="changeSelectedSkill(i, false)"
+                                <button (click)="changeSelectedSkill(skill)"
                                 type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editSkill">
                                     <i class="fa fa-pencil"></i>
                                 </button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletekill">
+                                <button (click)="changeSelectedSkill(skill)"
+                                type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteSkill">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>
@@ -48,7 +49,7 @@
             <h5>Soft Skills</h5>
 
             <ul class="skill-list list-group list-group-flush">
-                <li *ngFor="let skill of softSkills; let i = index" class="list-group-item d-flex justify-content-between align-items-start">
+                <li *ngFor="let skill of softSkills" class="list-group-item d-flex justify-content-between align-items-start">
                     <div class="ms-2 me-auto">
 
                         <div class="skill-name-container d-flex justify-content-between">
@@ -58,11 +59,12 @@
                             </div>
 
                             <div class="edit-delete-btns-container d-flex justify-content-evenly">
-                                <button (click)="changeSelectedSkill(i, true)"
+                                <button (click)="changeSelectedSkill(skill)"
                                 type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editSkill">
                                     <i class="fa fa-pencil"></i>
                                 </button>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deletekill">
+                                <button (click)="changeSelectedSkill(skill)"
+                                type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteSkill">
                                     <i class="fa fa-trash"></i>
                                 </button>
                             </div>
@@ -82,3 +84,4 @@
 <!--MODALS-->
 <app-create-skill></app-create-skill>
 <app-edit-skill [skillToEdit]="selectedSkill"></app-edit-skill>
+<app-delete-skill [skillToDelete]="selectedSkill"></app-delete-skill>

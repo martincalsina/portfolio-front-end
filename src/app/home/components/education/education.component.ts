@@ -12,8 +12,8 @@ export class EducationComponent {
 
   selectedEducation: Education | undefined;
 
-  changeSelectedEducation(index: number): void {
-    this.selectedEducation = this.educations![index];
+  changeSelectedEducation(education: Education): void {
+    this.selectedEducation = education;
   }
 
 }
