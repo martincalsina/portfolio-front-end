@@ -2,7 +2,8 @@
 
     <div class="education-title d-flex justify-content-between">
         <h3>Education</h3>
-        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addEducation">
+        <button *ngIf="isLoggedIn"
+        type="button" class="btn btn-add btn-warning" data-bs-toggle="modal" data-bs-target="#addEducation">
             <i class="fa fa-plus bg-warning"></i>
         </button>
     </div>
@@ -27,11 +28,13 @@
                     From {{ education.getStartDate() | date:'MMM, y' }}{{ education.getEndDate() ? ' To ' + (education.getEndDate() | date:'MMM, y') : ' To Present' }}
                 </span>
                 <div class="d-flex justify-content-evenly mt-2">
-                    <button (click)="changeSelectedEducation(education)"
+                    <button *ngIf="isLoggedIn"
+                    (click)="changeSelectedEducation(education)"
                     type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editEducation">
                         <i class="fa fa-pencil"></i>
                     </button>
-                    <button (click)="changeSelectedEducation(education)"
+                    <button *ngIf="isLoggedIn"
+                    (click)="changeSelectedEducation(education)"
                     type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteEducation">
                         <i class="fa fa-trash"></i>
                     </button>

@@ -17,6 +17,14 @@
             type="text" class="form-control" id="name" name="name" placeholder="CRUD App"
             [class.is-valid]="touchedAndValid('name')"
             [class.is-invalid]="touchedAndInvalid('name')">
+            <div *ngIf="touchedAndInvalid('name') && projectForm?.get('name')?.hasError('required')"
+            class="form-invalid">
+              Required.
+            </div>
+            <div *ngIf="touchedAndInvalid('name') && projectForm?.get('name')?.hasError('maxlength')"
+            class="form-invalid">
+              Max length is 100 characters.
+            </div>
           </div>
           <div class="mb-3">
             <label for="picture" class="form-label">Picture URL</label>
@@ -24,6 +32,14 @@
             type="text" class="form-control" id="picture" name="picture" placeholder="https://drive..."
             [class.is-valid]="touchedAndValid('picture')"
             [class.is-invalid]="touchedAndInvalid('picture')">
+            <div *ngIf="touchedAndInvalid('picture') && projectForm?.get('picture')?.hasError('required')"
+            class="form-invalid">
+              Required.
+            </div>
+            <div *ngIf="touchedAndInvalid('picture') && projectForm?.get('picture')?.hasError('maxlength')"
+            class="form-invalid">
+              Max length is 255 characters.
+            </div>
           </div>
           <div class="mb-3">
             <label for="url" class="form-label">Project URL</label>
@@ -31,6 +47,14 @@
             type="text" class="form-control" id="url" name="url" placeholder="https://github..."
             [class.is-valid]="touchedAndValid('url')"
             [class.is-invalid]="touchedAndInvalid('url')">
+            <div *ngIf="touchedAndInvalid('url') && projectForm?.get('url')?.hasError('required')"
+            class="form-invalid">
+              Required.
+            </div>
+            <div *ngIf="touchedAndInvalid('url') && projectForm?.get('url')?.hasError('maxlength')"
+            class="form-invalid">
+              Max length is 255 characters.
+            </div>
           </div>
           <div class="mb-3">
             <label for="description" class="form-label">Description</label>
@@ -39,12 +63,20 @@
               name="description" style="height: 100px"
               [class.is-valid]="touchedAndValid('description')"
             [class.is-invalid]="touchedAndInvalid('description')"></textarea>
+            <div *ngIf="touchedAndInvalid('description') && projectForm?.get('description')?.hasError('required')"
+            class="form-invalid">
+              Required.
+            </div>
+            <div *ngIf="touchedAndInvalid('name') && projectForm?.get('name')?.hasError('maxlength')"
+            class="form-invalid">
+              Max length is 200 characters.
+            </div>
           </div>
 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Understood</button>
+          <button type="submit" class="btn btn-primary">Edit</button>
         </div>
 
       </form>

@@ -7,11 +7,23 @@ body {
 }
 
 hr {
-    color: #ff00d9;
-    border-color: #ff00ea;
-    background-color: #ff00ea;
+    color: #FF00FF;
+    border-color: #FF00FF;
+    background-color: #FF00FF;
+}
+
+.form-invalid {
+    color: rgb(203, 27, 27);
 }
 
 .section-separator {
     height: 2px;
+}
+
+.btn-add {
+    transition: 0.2s ease-in-out;
+}
+
+.btn-add:hover {
+    transform: scale(1.15);
 }

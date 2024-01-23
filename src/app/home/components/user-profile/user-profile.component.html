@@ -3,7 +3,7 @@
         <div class="image-container position-relative">
             <img class="image" src="../../../../assets/dostoievski.jpg" alt="user">
             <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-                <button
+                <button *ngIf="isLoggedIn"
                 type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editUser">
                     <i class="fa fa-solid fa-pencil"></i>
                 </button>              
@@ -20,22 +20,22 @@
         <div class="aboutme-title d-flex">
             <h3 class="">About Me</h3>
             <div class="d-flex justify-content-between">
-                <button *ngIf="!showTextArea"
+                <button *ngIf="isLoggedIn && !showTextArea"
                 (click)="changeTextAreaVisibility(true)" type="button" class="btn btn-success">
                     <i class="fa fa-solid fa-pencil"></i>
                  </button>
-                 <button *ngIf="showTextArea"
-                 (click)="changeTextAreaVisibility(false); editDescription();" type="button" class="btn btn-success">
+                 <button *ngIf="isLoggedIn && showTextArea"
+                 (click)="editDescription()" type="button" class="btn btn-success">
                      <i class="fa fa-solid fa-check"></i>
                  </button>
-                 <button *ngIf="showTextArea"
+                 <button *ngIf="isLoggedIn && showTextArea"
                   (click)="changeTextAreaVisibility(false)" type="button" class="btn btn-danger">
                      <i class="fa fa-solid fa-xmark"></i>
                  </button>
             </div>
         </div>     
         <hr class="section-separator">
-        <p *ngIf="!showTextArea">
+        <p class="text-break" *ngIf="!showTextArea">
             {{user?.getDescription()}}
         </p>
         <app-aboutme-textarea *ngIf="showTextArea"

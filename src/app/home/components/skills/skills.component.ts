@@ -8,6 +8,7 @@ import { Skill } from '../../../model/Skill';
 })
 export class SkillsComponent implements OnChanges {
 
+  @Input() isLoggedIn: boolean = false;
   @Input() skills?: Skill[];
   hardSkills: Skill[] = [];
   softSkills: Skill[] = []
@@ -21,7 +22,7 @@ export class SkillsComponent implements OnChanges {
   changeSelectedSkill(skill: Skill) {
 
     this.selectedSkill = skill;
-    
+
   }
 
   private separateHardAndSoftSkills() {
@@ -29,13 +30,18 @@ export class SkillsComponent implements OnChanges {
     this.hardSkills = [];
     this.softSkills = [];
 
-    for (let skill of this.skills!) {
-      if (skill.getIsSoft()) {
-        this.softSkills.push(skill);
-      } else {
-        this.hardSkills.push(skill);
+    if (this.skills) {
+
+      for (let skill of this.skills!) {
+        if (skill.getIsSoft()) {
+          this.softSkills.push(skill);
+        } else {
+          this.hardSkills.push(skill);
+        }
       }
+
     }
+
 
   }
 

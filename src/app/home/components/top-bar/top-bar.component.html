@@ -26,15 +26,15 @@
           <li class="nav-item">
             <a class="nav-link" (click)="scrollTo('network')">Network</a>
           </li>
-          <li class="nav-item">
+          <li *ngIf="!isLoggedIn" class="nav-item">
             <a routerLink="/login">
               <button class="mt-2">           
                 <i class="fa fa-solid fa-right-to-bracket"></i>            
               </button>
             </a>
           </li>
-          <li class="nav-item">
-            <button class="mt-2">
+          <li *ngIf="isLoggedIn" class="nav-item">
+            <button (click)="logout()" class="mt-2">
               <i class="fa fa-solid fa-right-from-bracket"></i>
             </button>
           </li>

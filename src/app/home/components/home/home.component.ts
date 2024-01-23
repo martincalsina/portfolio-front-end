@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../../../services/data.service';
 import { Education } from '../../../model/Education';
 import { User } from '../../../model/User';
@@ -17,13 +17,14 @@ import { Subscription } from 'rxjs';
 export class HomeComponent implements OnInit{
 
   private userId!: number;
-  private data?: any;
   public userData?: User;
   public educationData?: Education[];
   public experienceData?: Experience[];
   public skillsData?: Skill[];
   public projectsData?: Project[];
   public networkData?: Network[];
+
+  public isLoggedIn: boolean = false;
 
   private userSubscription: Subscription = new Subscription();
   private educationSubscription: Subscription = new Subscription();
@@ -32,7 +33,7 @@ export class HomeComponent implements OnInit{
   private projectsSubscription: Subscription = new Subscription();
   private networkSubscription: Subscription = new Subscription();
 
-  constructor(private route: ActivatedRoute, private dataService: DataService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private dataService: DataService) {}
 
   ngOnInit(): void {
 
@@ -45,7 +46,6 @@ export class HomeComponent implements OnInit{
 
         //console.log("user data:", data);
 
-        this.data = data;
         this.userData = this.getUser(data);
         this.educationData = this.getEducationData(data.educations);
         this.experienceData = this.getExperienceData(data.experiences);
@@ -63,9 +63,11 @@ export class HomeComponent implements OnInit{
         */
 
         sessionStorage.setItem("userId", this.userId?.toString());
+        this.checkIfLogged(this.userId);
 
       }, error => {
         console.log("There is no user with the given id", error);
+        this.router.navigate(['/error404']);
       });
 
     });
@@ -81,6 +83,38 @@ export class HomeComponent implements OnInit{
     this.skillsSubscription.unsubscribe();
     this.projectsSubscription.unsubscribe();
     this.networkSubscription.unsubscribe();
+  }
+
+  private checkIfLogged(userId: number) {
+
+    const email = String(sessionStorage.getItem('userEmail') || "");
+    const password = String(sessionStorage.getItem('userPassword') || "");
+
+    if (email != "" && password != "") {
+
+      this.dataService.login(email, password).subscribe( r => {
+
+        if (r != null) {
+
+          if (userId == r.id) {
+            this.isLoggedIn = true;
+          } else {
+            this.isLoggedIn = false;
+          }
+
+
+        } else {
+          this.isLoggedIn = false;
+        }
+
+        console.log("Is logged in?", this.isLoggedIn);
+
+      }, error => {
+        console.log("Error: ", error);
+      });
+
+    }
+
   }
 
   private subjectsSubscriptions() {

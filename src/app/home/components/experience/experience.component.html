@@ -2,7 +2,8 @@
 
     <div class="experience-title d-flex justify-content-between">
         <h3>Experience</h3>
-        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addExperience">
+        <button *ngIf="isLoggedIn"
+        type="button" class="btn btn-add btn-warning" data-bs-toggle="modal" data-bs-target="#addExperience">
             <i class="fa fa-plus bg-warning"></i>
         </button>
     </div>
@@ -24,12 +25,14 @@
                     <span class="experience-date badge rounded-pill">
                         From {{ experience.getStartDate() | date:'MMM, y' }}{{ experience.getEndDate() ? ' To ' + (experience.getEndDate() | date:'MMM, y') : ' To Present' }}
                     </span>
-                    <div class="d-flex justify-content-evenly mt-2">
-                        <button (click)="changeSelectedExperience(experience)"
+                    <div *ngIf="isLoggedIn" class="d-flex justify-content-evenly mt-2">
+                        <button
+                         (click)="changeSelectedExperience(experience)"
                         type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editExperience">
                             <i class="fa fa-pencil"></i>
                         </button>
-                        <button (click)="changeSelectedExperience(experience)"
+                        <button 
+                        (click)="changeSelectedExperience(experience)"
                         type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteExperience">
                             <i class="fa fa-trash"></i>
                         </button>

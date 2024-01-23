@@ -2,7 +2,8 @@
 
     <div class="skills-title d-flex justify-content-between">
         <h3>Skills</h3>
-        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addSkill">
+        <button *ngIf="isLoggedIn"
+        type="button" class="btn btn-add btn-warning" data-bs-toggle="modal" data-bs-target="#addSkill">
             <i class="fa fa-plus"></i>
         </button>
     </div>
@@ -25,12 +26,14 @@
                                 <i [ngClass]="skill.getIcon()" class="skill-icon "></i> {{skill.getName()}}
                             </div>
 
-                            <div class="edit-delete-btns-container d-flex justify-content-evenly">
-                                <button (click)="changeSelectedSkill(skill)"
+                            <div *ngIf="isLoggedIn" class="edit-delete-btns-container d-flex justify-content-evenly">
+                                <button 
+                                (click)="changeSelectedSkill(skill)"
                                 type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editSkill">
                                     <i class="fa fa-pencil"></i>
                                 </button>
-                                <button (click)="changeSelectedSkill(skill)"
+                                <button 
+                                (click)="changeSelectedSkill(skill)"
                                 type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteSkill">
                                     <i class="fa fa-trash"></i>
                                 </button>
@@ -58,12 +61,14 @@
                                 <i [ngClass]="skill.getIcon()" class="skill-icon "></i> {{skill.getName()}}
                             </div>
 
-                            <div class="edit-delete-btns-container d-flex justify-content-evenly">
-                                <button (click)="changeSelectedSkill(skill)"
+                            <div *ngIf="isLoggedIn" class="edit-delete-btns-container d-flex justify-content-evenly">
+                                <button
+                                (click)="changeSelectedSkill(skill)"
                                 type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editSkill">
                                     <i class="fa fa-pencil"></i>
                                 </button>
-                                <button (click)="changeSelectedSkill(skill)"
+                                <button
+                                (click)="changeSelectedSkill(skill)"
                                 type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteSkill">
                                     <i class="fa fa-trash"></i>
                                 </button>

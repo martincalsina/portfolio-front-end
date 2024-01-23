@@ -8,6 +8,7 @@ import { Network } from '../../../model/Network';
 })
 export class NetworkComponent {
 
+  @Input() isLoggedIn: boolean = false;
   @Input() networks?: Network[];
 
   selectedNetwork?: Network;

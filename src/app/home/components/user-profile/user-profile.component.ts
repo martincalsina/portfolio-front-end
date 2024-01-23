@@ -9,6 +9,7 @@ import { DataService } from '../../../services/data.service';
 })
 export class UserProfileComponent implements OnChanges {
 
+  @Input() isLoggedIn: boolean = false;
   @Input() user?: User;
   //public user?: User;
 

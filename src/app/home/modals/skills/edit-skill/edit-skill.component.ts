@@ -66,7 +66,7 @@ export class EditSkillComponent implements OnInit, OnChanges {
         formValues.name,
         formValues.description,
         formValues.icon,
-        this.isSoftCheckBox!,
+        formValues.isSoft,
         userId
       );
 

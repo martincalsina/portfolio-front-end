@@ -1,64 +1,95 @@
 <div class="container d-flex align-items-center justify-content-center mt-3">
     <div class="card shadow-lg p-3 mb-5  rounded
     w-75 min-width-300px min-width-sm-400px min-width-md-500px">
-        <div class="card-header">
-            <h3 class="text-center">Create an Account</h3>
-        </div>
-        <div class="card-body">
-            <form name="signup">
+        <form [formGroup]="signupForm!" (ngSubmit)="onSubmit()">
+
+            <div class="card-header">
+                <h3 class="text-center">Create an Account</h3>
+            </div>
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input formControlName="name" type="text" class="form-control" name="name" id="name" 
+                    [class.is-valid]="touchedAndValid('name')"
+                    [class.is-invalid]="touchedAndInvalid('name')"
+                    required>
+                    <div *ngIf="touchedAndInvalid('name') && signupForm!.get('name')?.hasError('required')"
+                    class="form-invalid">
+                        Required.
+                    </div>
+                    <div *ngIf="touchedAndInvalid('name') && signupForm!.get('name')?.hasError('maxlength')"
+                    class="form-invalid">
+                        Max length is 100 characters.
+                    </div>
+                </div>
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input formControlName="email" 
-                     type="text" class="form-control" name="email" id="email" required>
-                    <div class="form-invalid">
+                    <input formControlName="email" type="email" class="form-control" name="email" id="email" 
+                    [class.is-valid]="touchedAndValid('email')"
+                    [class.is-invalid]="touchedAndInvalid('email')"
+                    required>
+                    <div *ngIf="touchedAndInvalid('email') && signupForm!.get('email')?.hasError('required')"
+                    class="form-invalid">
                         Required.
                     </div>
-                    <div class="form-invalid" >
-                        Min length is 6 characters.
+                    <div *ngIf="touchedAndInvalid('email') && signupForm!.get('email')?.hasError('email')"
+                    class="form-invalid">
+                        Give a valid email.
                     </div>
-                    <div class="form-invalid">
+                    <div *ngIf="touchedAndInvalid('email') && signupForm!.get('email')?.hasError('maxlength')"
+                    class="form-invalid">
                         Max length is 100 characters.
                     </div>
-                    <div class="form-invalid">
+                    <div *ngIf="emailAlreadyInUse" class="form-invalid">
                         This email is already in use.
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input formControlName="password"   
-                    type="password" class="form-control" name="password" id="password" required>
-                    <div class="form-invalid" >
+                    <input formControlName="password" type="password" class="form-control" name="password" id="password"
+                        [class.is-valid]="touchedAndValid('password')"
+                        [class.is-invalid]="touchedAndInvalid('password')"
+                        required>
+                    <div *ngIf="touchedAndInvalid('password') && signupForm!.get('password')?.hasError('required')"
+                    class="form-invalid">
                         Required.
                     </div>
-                    <div class="form-invalid" >
-                        Min length is 8 characters.
-                    </div>
-                    <div class="form-invalid">
+                    <div *ngIf="touchedAndInvalid('password') && signupForm!.get('password')?.hasError('maxlength')"
+                    class="form-invalid">
                         Max length is 100 characters.
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="confirmPassword" class="form-label">Confirm Password</label>
-                    <input formControlName="confirmPassword"  
-                    type="password" class="form-control" name="confirmPassword" id="confirmPassword" required>
-                    <div class="form-invalid" >
+                    <input formControlName="confirmPassword" type="password" class="form-control" name="confirmPassword"
+                        id="confirmPassword" 
+                        [class.is-valid]="touchedAndValid('confirmPassword')"
+                        [class.is-invalid]="touchedAndInvalid('confirmPassword')"
+                        required>
+                    <div *ngIf="touchedAndInvalid('confirmPassword') && signupForm!.get('confirmPassword')?.hasError('required')" 
+                    class="form-invalid">
                         Required.
                     </div>
-                    <div class="form-invalid">
+                    <div *ngIf="touchedAndInvalid('confirmPassword') && signupForm!.get('confirmPassword')?.hasError('mismatch')"
+                    class="form-invalid">
                         The passwords must be the same.
                     </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Register</button>
-            </form>
-            <div class="alert alert-success usuarioCreado mt-2" role="alert">
-                Your user was created successfully. You will be redirected to the login page.
-            </div>    
-        </div>    
-        <div class="card-footer text-center">
-            <p class="mb-0">Already have an account? <a routerLink="/login">Log In</a></p>
-        </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+                <div *ngIf="userCreated"
+                class="alert alert-success userCreated mt-2" role="alert">
+                    Your user was successfully created. You will be redirected to your portfolio.
+                </div>
+            </div>
+            <div class="card-footer text-center">
+                <p class="mb-0">Already have an account? <a routerLink="/login">Log In</a></p>
+            </div>
+        </form>
     </div>
 </div>

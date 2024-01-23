@@ -1,8 +1,14 @@
-<app-top-bar></app-top-bar>
-<app-user-profile [user]="userData"></app-user-profile>
-<app-education [educations]="educationData"></app-education>
-<app-experience [experiences]="experienceData"></app-experience>
-<app-skills [skills]="skillsData"></app-skills>
-<app-projects [projects]="projectsData"></app-projects>
-<app-network [networks]="networkData"></app-network>
+<app-top-bar [isLoggedIn]="isLoggedIn"></app-top-bar>
+<app-user-profile [isLoggedIn]="isLoggedIn"
+[user]="userData"></app-user-profile>
+<app-education [isLoggedIn]="isLoggedIn"
+[educations]="educationData"></app-education>
+<app-experience [isLoggedIn]="isLoggedIn"
+[experiences]="experienceData"></app-experience>
+<app-skills [isLoggedIn]="isLoggedIn"
+[skills]="skillsData"></app-skills>
+<app-projects [isLoggedIn]="isLoggedIn"
+[projects]="projectsData"></app-projects>
+<app-network [isLoggedIn]="isLoggedIn"
+[networks]="networkData"></app-network>
 <app-footer></app-footer>

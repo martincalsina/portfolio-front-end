@@ -8,6 +8,7 @@ import { Project } from '../../../model/Project';
 })
 export class ProjectsComponent {
 
+  @Input() isLoggedIn: boolean = false;
   @Input() projects?: Project[];
 
   selectedProject?: Project;

@@ -10,6 +10,7 @@ import { DataService } from '../../../services/data.service';
 })
 export class EducationComponent {
 
+  @Input() isLoggedIn: boolean = false;
   @Input() educations?: Education[];
 
 

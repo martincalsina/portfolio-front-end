@@ -8,6 +8,7 @@ import { Experience } from '../../../model/Experience';
 })
 export class ExperienceComponent {
 
+  @Input() isLoggedIn: boolean = false;
   @Input() experiences?: Experience[];
 
   selectedExperience?: Experience;

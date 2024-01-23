@@ -16,6 +16,14 @@
               type="text" class="form-control" id="institution" name="institution" placeholder="Amazon"
               [class.is-valid]="touchedAndValid('institution')"
               [class.is-invalid]="touchedAndInvalid('institution')">
+              <div *ngIf="touchedAndInvalid('institution') && experienceForm?.get('institution')?.hasError('required')"
+              class="form-invalid">
+                Required.
+              </div>
+              <div *ngIf="touchedAndInvalid('institution') && experienceForm?.get('institution')?.hasError('maxlength')"
+              class="form-invalid">
+                Max length is 150 characters.
+              </div>
             </div>
             <div class="mb-3">
               <label for="position" class="form-label">Position</label>
@@ -23,6 +31,14 @@
               type="text" class="form-control" id="positon" name="position" placeholder="Data Scientist Jr"
               [class.is-valid]="touchedAndValid('position')"
               [class.is-invalid]="touchedAndInvalid('position')">
+              <div *ngIf="touchedAndInvalid('position') && experienceForm?.get('position')?.hasError('required')"
+              class="form-invalid">
+                Required.
+              </div>
+              <div *ngIf="touchedAndInvalid('position') && experienceForm?.get('position')?.hasError('maxlength')"
+              class="form-invalid">
+                Max length is 150 characters.
+              </div>
             </div>
             <div class="mb-3">
               <label for="startDate" class="form-label">Start Date</label>
@@ -30,6 +46,11 @@
               type="date" class="form-control" id="startDate" name="startDate"
               [class.is-valid]="touchedAndValid('startDate')"
               [class.is-invalid]="touchedAndInvalid('startDate')">
+              <div *ngIf="touchedAndInvalid('startDate') && experienceForm?.get('startDate')?.hasError('required')"
+              class="form-invalid">
+                Required.
+              </div>
+              
             </div>
             <div class="mb-3">
               <input formControlName="isWorking" 
@@ -52,13 +73,21 @@
                 style="height: 100px"
                 [class.is-valid]="touchedAndValid('description')"
                 [class.is-invalid]="touchedAndInvalid('description')"></textarea>
+                <div *ngIf="touchedAndInvalid('description') && experienceForm?.get('description')?.hasError('required')"
+              class="form-invalid">
+                Required.
+              </div>
+              <div *ngIf="touchedAndInvalid('description') && experienceForm?.get('description')?.hasError('maxlength')"
+              class="form-invalid">
+                Max length is 300 characters.
+              </div>
             </div>
         
         
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Understood</button>
+            <button type="submit" class="btn btn-primary">Create</button>
           </div>
         
         </form>

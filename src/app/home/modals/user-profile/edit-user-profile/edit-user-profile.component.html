@@ -16,6 +16,14 @@
               <input formControlName="name" type="text" class="form-control" id="name" name="name" placeholder="Martín"
               [class.is-valid]="touchedAndValid('name')"
               [class.is-invalid]="touchedAndInvalid('name')">
+              <div *ngIf="touchedAndInvalid('name') && userForm?.get('name')?.hasError('required')"
+              class="form-invalid">
+                Required.
+              </div>
+              <div *ngIf="touchedAndInvalid('name') && userForm?.get('name')?.hasError('maxlength')"
+              class="form-invalid">
+                Max length is 150 characters.
+              </div>
             </div>
             <div class="mb-3">
               <label for="headline" class="form-label">Headline</label>
@@ -23,6 +31,14 @@
                 placeholder="Software Engineer"
                 [class.is-valid]="touchedAndValid('headline')"
                 [class.is-invalid]="touchedAndInvalid('headline')">
+                <div *ngIf="touchedAndInvalid('headline') && userForm?.get('headline')?.hasError('required')"
+              class="form-invalid">
+                Required.
+              </div>
+              <div *ngIf="touchedAndInvalid('headline') && userForm?.get('headline')?.hasError('maxlength')"
+              class="form-invalid">
+                Max length is 150 characters.
+              </div>
             </div>
             <div class="mb-3">
               <label for="picture" class="form-label">Picture URL</label>
@@ -30,6 +46,14 @@
                 placeholder="https://drive..."
                 [class.is-valid]="touchedAndValid('picture')"
                 [class.is-invalid]="touchedAndInvalid('picture')">
+                <div *ngIf="touchedAndInvalid('picture') && userForm?.get('picture')?.hasError('required')"
+              class="form-invalid">
+                Required.
+              </div>
+              <div *ngIf="touchedAndInvalid('picture') && userForm?.get('picture')?.hasError('maxlength')"
+              class="form-invalid">
+                Max length is 255 characters.
+              </div>
             </div>
       
       
@@ -37,7 +61,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Understood</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
           </div>
 
         </form>
