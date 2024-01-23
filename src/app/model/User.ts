@@ -45,6 +45,10 @@ export class User {
         return this.description;
     }
 
+    public setDescription(description: string) {
+        this.description = description;
+    }
+
     public getPicture(): string {
         return this.picture;
     }

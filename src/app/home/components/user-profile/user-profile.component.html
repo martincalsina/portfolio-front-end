@@ -3,10 +3,10 @@
         <div class="image-container position-relative">
             <img class="image" src="../../../../assets/dostoievski.jpg" alt="user">
             <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editUser">
+                <button
+                type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editUser">
                     <i class="fa fa-solid fa-pencil"></i>
-                </button>
-                
+                </button>              
             </div>
         </div>
         <div class="name-container">
@@ -20,21 +20,28 @@
         <div class="aboutme-title d-flex">
             <h3 class="">About Me</h3>
             <div class="d-flex justify-content-between">
-                <button type="button" class="btn btn-success">
+                <button *ngIf="!showTextArea"
+                (click)="changeTextAreaVisibility(true)" type="button" class="btn btn-success">
                     <i class="fa fa-solid fa-pencil"></i>
                  </button>
-                 <button type="button" class="btn btn-success">
+                 <button *ngIf="showTextArea"
+                 (click)="changeTextAreaVisibility(false); editDescription();" type="button" class="btn btn-success">
                      <i class="fa fa-solid fa-check"></i>
                  </button>
-                 <button type="button" class="btn btn-danger">
+                 <button *ngIf="showTextArea"
+                  (click)="changeTextAreaVisibility(false)" type="button" class="btn btn-danger">
                      <i class="fa fa-solid fa-xmark"></i>
                  </button>
             </div>
         </div>     
         <hr class="section-separator">
-        <p>
+        <p *ngIf="!showTextArea">
             {{user?.getDescription()}}
         </p>
+        <app-aboutme-textarea *ngIf="showTextArea"
+         [descriptionToEdit]="user!.getDescription()"
+         (updateDescription)="changeEditedDescription($event)"
+         ></app-aboutme-textarea>
     </div>
 </section>
 

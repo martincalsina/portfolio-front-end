@@ -28,6 +28,7 @@ import { DeleteExperienceComponent } from './modals/experience/delete-experience
 import { DeleteSkillComponent } from './modals/skills/delete-skill/delete-skill.component';
 import { DeleteProjectComponent } from './modals/projects/delete-project/delete-project.component';
 import { DeleteNetworkComponent } from './modals/network/delete-network/delete-network.component';
+import { AboutmeTextareaComponent } from './components/aboutme-textarea/aboutme-textarea.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { DeleteNetworkComponent } from './modals/network/delete-network/delete-n
     DeleteSkillComponent,
     DeleteProjectComponent,
     DeleteNetworkComponent,
+    AboutmeTextareaComponent,
   ],
   imports: [
     CommonModule,
