@@ -90,6 +90,7 @@ export class EditEducationComponent implements OnInit, OnChanges {
 
       this.dataService.editEducation(education).subscribe(r => {
         console.log("Education successfully edited", r);
+        this.dataService.getEducationSubject().next();
         this.educationForm?.reset;
       }, error => {
         console.log("The education couldn't been edited", error);

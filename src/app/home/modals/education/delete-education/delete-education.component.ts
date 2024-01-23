@@ -19,6 +19,7 @@ export class DeleteEducationComponent {
 
     this.dataService.deleteEducation(this.educationToDelete!.getId()).subscribe(r => {
       console.log("The education was successfully deleted", r);
+      this.dataService.getEducationSubject().next();
     }, error => {
       console.log("The education couldn't been deleted", error);
     }); 

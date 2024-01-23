@@ -70,6 +70,7 @@ export class EditProjectComponent implements OnInit, OnChanges {
 
       this.dataService.editProject(project).subscribe(r => {
         console.log("Project successfully edited", r);
+        this.dataService.getProjectsSubject().next();
         this.projectForm?.reset;
       }, error => {
         console.log("The project couldn't been edited", error);

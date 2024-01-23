@@ -7,6 +7,7 @@ import { Experience } from '../../../model/Experience';
 import { Skill } from '../../../model/Skill';
 import { Project } from '../../../model/Project';
 import { Network } from '../../../model/Network';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -23,6 +24,13 @@ export class HomeComponent implements OnInit{
   public skillsData?: Skill[];
   public projectsData?: Project[];
   public networkData?: Network[];
+
+  private userSubscription: Subscription = new Subscription();
+  private educationSubscription: Subscription = new Subscription();
+  private experienceSubscription: Subscription = new Subscription();
+  private skillsSubscription: Subscription = new Subscription();
+  private projectsSubscription: Subscription = new Subscription();
+  private networkSubscription: Subscription = new Subscription();
 
   constructor(private route: ActivatedRoute, private dataService: DataService) {}
 
@@ -61,6 +69,104 @@ export class HomeComponent implements OnInit{
       });
 
     });
+
+    this.subjectsSubscriptions();
+
+  }
+
+  ngOnDestroy() {
+    this.userSubscription.unsubscribe();
+    this.educationSubscription.unsubscribe();
+    this.experienceSubscription.unsubscribe();
+    this.skillsSubscription.unsubscribe();
+    this.projectsSubscription.unsubscribe();
+    this.networkSubscription.unsubscribe();
+  }
+
+  private subjectsSubscriptions() {
+    this.subscribeToUser();
+    this.subscribeToEducation();
+    this.subscribeToExperience();
+    this.subscribeToSkills();
+    this.subscribeToProjects();
+    this.subscribeToNetwork();
+  }
+
+  private subscribeToUser() {
+
+    this.dataService.getUserSubject().subscribe(() => {
+
+      this.dataService.getUserById(this.userId).subscribe(data => {
+        this.userData = this.getUser(data);
+        console.log("User data was updated");
+      });
+      
+    }) 
+
+  }
+
+  private subscribeToEducation () {
+
+    this.dataService.getEducationSubject().subscribe(() => {
+
+      this.dataService.listEducationByUserId(this.userId).subscribe(data => {
+        this.educationData = this.getEducationData(data);
+        console.log("Education data was updated");
+      });
+      
+    }) 
+
+  }
+
+  private subscribeToExperience() {
+
+    this.dataService.getExperienceSubject().subscribe(() => {
+
+      this.dataService.listExperienceByUserId(this.userId).subscribe(data => {
+        this.experienceData = this.getExperienceData(data);
+        console.log("Experience data was updated");
+      });
+      
+    }) 
+
+  }
+
+  private subscribeToSkills() {
+
+    this.dataService.getSkillsSubject().subscribe(() => {
+
+      this.dataService.listSkillByUserId(this.userId).subscribe(data => {
+        this.skillsData = this.getSkillData(data);
+        console.log("Skills data was updated");
+      });
+      
+    }) 
+
+  }
+
+  private subscribeToProjects() {
+
+    this.dataService.getProjectsSubject().subscribe(() => {
+
+      this.dataService.listProjectByUserId(this.userId).subscribe(data => {
+        this.projectsData = this.getProjectData(data);
+        console.log("Projects data was updated");
+      });
+      
+    }) 
+
+  }
+
+  private subscribeToNetwork() {
+
+    this.dataService.getNetworkSubject().subscribe(() => {
+
+      this.dataService.listNetworkByUserId(this.userId).subscribe(data => {
+        this.networkData = this.getNetworkData(data);
+        console.log("Network data was updated");
+      });
+      
+    }) 
 
   }
 

@@ -62,6 +62,7 @@ export class EditUserProfileComponent implements OnInit, OnChanges{
 
       this.dataService.editUser(user).subscribe(r => {
         console.log("The user was successfully updated", r);
+        this.dataService.getUserSubject().next();
       }, error => {
         console.log("There was an error while trying to edit the user", error);
       });

@@ -14,6 +14,8 @@ export class EditSkillComponent implements OnInit, OnChanges {
   
   public skillForm?: FormGroup;
 
+  public isSoftCheckBox?: boolean;
+
   constructor(private fb: FormBuilder, private dataService: DataService) {}
 
   ngOnInit(): void {
@@ -64,13 +66,14 @@ export class EditSkillComponent implements OnInit, OnChanges {
         formValues.name,
         formValues.description,
         formValues.icon,
-        formValues.isSoft,
+        this.isSoftCheckBox!,
         userId
       );
 
       this.dataService.editSkill(skill).subscribe(r => {
         console.log("Skill successfully edited", r);
-        this.skillForm?.reset;
+        this.dataService.getSkillsSubject().next();
+        this.skillForm?.reset();
       }, error => {
         console.log("The skill couldn't been edited", error);
       });

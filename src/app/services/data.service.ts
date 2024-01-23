@@ -15,12 +15,12 @@ export class DataService {
 
   private backendUrl: string ='http://localhost:8080'; //local
 
-  private userSubject: Subject<any> = new Subject<void>();
-  private educationSubject: Subject<any> = new Subject<void>();
-  private experienceSubject: Subject<any> = new Subject<void>();
-  private skillsSubject: Subject<any> = new Subject<void>();
-  private projectsSubject: Subject<any> = new Subject<void>();
-  private networkSubject: Subject<any> = new Subject<void>();
+  private userSubject: Subject<void> = new Subject<void>();
+  private educationSubject: Subject<void> = new Subject<void>();
+  private experienceSubject: Subject<void> = new Subject<void>();
+  private skillsSubject: Subject<void> = new Subject<void>();
+  private projectsSubject: Subject<void> = new Subject<void>();
+  private networkSubject: Subject<void> = new Subject<void>();
 
   private loadingSubject: Subject<boolean> = new Subject<boolean>();
 
@@ -29,27 +29,27 @@ export class DataService {
 
   //get subject
 
-  getUserSubject(): Subject<any> {
+  getUserSubject(): Subject<void> {
     return this.userSubject;
   }
 
-  getEducationSubject(): Subject<any> {
+  getEducationSubject(): Subject<void> {
     return this.educationSubject;
   }
 
-  getExperienceSubject(): Subject<any> {
+  getExperienceSubject(): Subject<void> {
     return this.experienceSubject;
   }
 
-  getSkillsSubject(): Subject<any> {
+  getSkillsSubject(): Subject<void> {
     return this.skillsSubject;
   }
 
-  getProjectsSubject(): Subject<any> {
+  getProjectsSubject(): Subject<void> {
     return this.projectsSubject;
   }
 
-  getNetworkSubject(): Subject<any> {
+  getNetworkSubject(): Subject<void> {
     return this.networkSubject;
   }
 

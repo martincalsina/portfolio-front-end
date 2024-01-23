@@ -57,6 +57,7 @@ export class CreateProjectComponent {
 
       this.dataService.createProject(project).subscribe(r => {
         console.log("Project successfully created", r);
+        this.dataService.getProjectsSubject().next();
         this.projectForm?.reset;
       }, error => {
         console.log("The project couldn't been created", error);

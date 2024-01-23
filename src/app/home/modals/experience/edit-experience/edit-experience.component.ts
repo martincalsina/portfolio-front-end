@@ -89,6 +89,7 @@ export class EditExperienceComponent implements OnInit, OnChanges {
 
       this.dataService.editExperience(experience).subscribe(r => {
         console.log("Experience successfully edited", r);
+        this.dataService.getExperienceSubject().next();
         this.experienceForm?.reset;
       }, error => {
         console.log("The experience couldn't been edited", error);

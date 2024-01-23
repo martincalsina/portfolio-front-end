@@ -61,6 +61,7 @@ export class CreateExperienceComponent {
 
       this.dataService.createExperience(experience).subscribe(r => {
         console.log("Experience successfully created", r);
+        this.dataService.getExperienceSubject().next();
         this.experienceForm?.reset;
       }, error => {
         console.log("The experience couldn't been created", error);

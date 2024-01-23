@@ -39,6 +39,7 @@ export class UserProfileComponent implements OnChanges {
 
     this.dataService.editUser(this.user!).subscribe( r => {
       console.log("The description was successfully edited", r);
+      this.dataService.getUserSubject().next();
     }, error => {
       console.log("The description couldn't been edited", error);
     }) 

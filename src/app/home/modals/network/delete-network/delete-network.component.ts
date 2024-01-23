@@ -18,6 +18,7 @@ export class DeleteNetworkComponent {
     this.dataService.deleteNetwork(this.networkToDelete!.getId()).subscribe(r =>{
 
       console.log("The network was deleted successfully", r);
+      this.dataService.getNetworkSubject().next();
       
     }, error => {
       console.log("The network couldn't been deleted", error);

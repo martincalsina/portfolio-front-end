@@ -17,6 +17,7 @@ export class DeleteExperienceComponent {
 
     this.dataService.deleteExperience(this.experienceToDelete!.getId()).subscribe(r => {
       console.log("The experience was successfully deleted", r);
+      this.dataService.getExperienceSubject().next();
     }, error => {
       console.log("The experience couldn't been deleted", error);
     }); 

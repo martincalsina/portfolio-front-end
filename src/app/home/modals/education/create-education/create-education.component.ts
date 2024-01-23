@@ -62,6 +62,7 @@ export class CreateEducationComponent {
 
       this.dataService.createEducation(education).subscribe(r => {
         console.log("Education successfully created", r);
+        this.dataService.getEducationSubject().next();
         this.educationForm?.reset;
       }, error => {
         console.log("The education couldn't been created", error);

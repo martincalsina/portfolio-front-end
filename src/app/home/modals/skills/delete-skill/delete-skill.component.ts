@@ -17,6 +17,7 @@ export class DeleteSkillComponent {
 
     this.dataService.deleteSkill(this.skillToDelete!.getId()).subscribe(r => {
       console.log("The skill was successfully deleted", r);
+      this.dataService.getSkillsSubject().next();
     }, error => {
       console.log("The skill couldn't been deleted", error);
     }); 

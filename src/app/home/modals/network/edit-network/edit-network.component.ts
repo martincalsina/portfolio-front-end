@@ -66,6 +66,7 @@ export class EditNetworkComponent implements OnInit, OnChanges{
 
       this.dataService.editNetwork(network).subscribe(r => {
         console.log("Network successfully edited", r);
+        this.dataService.getNetworkSubject().next();
         this.networkForm?.reset;
       }, error => {
         console.log("The network couldn't been edited", error);

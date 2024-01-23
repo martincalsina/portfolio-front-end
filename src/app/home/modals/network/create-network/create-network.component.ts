@@ -55,6 +55,7 @@ export class CreateNetworkComponent {
 
       this.dataService.createNetwork(network).subscribe(r => {
         console.log("Network successfully created", r);
+        this.dataService.getNetworkSubject().next();
         this.networkForm?.reset;
       }, error => {
         console.log("The network couldn't been created", error);

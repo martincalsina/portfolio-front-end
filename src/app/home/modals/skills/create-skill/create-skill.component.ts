@@ -56,6 +56,7 @@ export class CreateSkillComponent {
 
       this.dataService.createSkill(skill).subscribe(r => {
         console.log("Skill successfully created", r);
+        this.dataService.getSkillsSubject().next();
         this.skillForm?.reset;
       }, error => {
         console.log("The skill couldn't been created", error);
