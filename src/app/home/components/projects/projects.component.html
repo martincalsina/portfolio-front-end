@@ -30,7 +30,8 @@
                         </a>
                     </div>
                     <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editProject">
+                        <button (click)="changeSelectedProject(i)"
+                        type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editProject">
                             <i class="fa fa-pencil"></i>
                         </button>
                         <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteProject">
@@ -50,3 +51,4 @@
 
 <!--MODALS-->
 <app-create-project></app-create-project>
+<app-edit-project [projectToEdit]="selectedProject"></app-edit-project>

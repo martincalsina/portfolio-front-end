@@ -10,4 +10,10 @@ export class ExperienceComponent {
 
   @Input() experiences?: Experience[];
 
+  selectedExperience?: Experience;
+
+  changeSelectedExperience(index: number): void {
+    this.selectedExperience = this.experiences![index];
+  }
+
 }

@@ -12,8 +12,19 @@ export class SkillsComponent implements OnChanges {
   hardSkills: Skill[] = [];
   softSkills: Skill[] = []
 
+  selectedSkill?: Skill;
+
   ngOnChanges() {
     this.separateHardAndSoftSkills();
+  }
+
+  changeSelectedSkill(index: number, isSoft: boolean) {
+
+    if (isSoft) {
+      this.selectedSkill = this.softSkills[index];
+    } else {
+      this.selectedSkill = this.hardSkills[index];
+    }
   }
 
   private separateHardAndSoftSkills() {

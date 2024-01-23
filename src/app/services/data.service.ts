@@ -81,7 +81,15 @@ export class DataService {
   }
 
   editUser(user: User): Observable<any> {
-    return this.http.put(`${this.backendUrl}/user/edit`, user);
+    return this.http.put(`${this.backendUrl}/user/edit`, {
+      userId: user.getId(),
+      email: user.getEmail(),
+      password: user.getPassword(),
+      name: user.getName(),
+      headline: user.getHeadline(),
+      description: user.getDescription(),
+      picture: user.getPicture()
+    });
   }
 
   //education methods
@@ -99,7 +107,15 @@ export class DataService {
   }
 
   editEducation(education: Education): Observable<any> {
-    return this.http.put(`${this.backendUrl}/education/edit`, education);
+    return this.http.put(`${this.backendUrl}/education/edit`, {
+      educationId: education.getId(),
+      institution: education.getInstitution(),
+      title: education.getTitle(),
+      description: education.getDescription(),
+      startDate: education.getStartDate(),
+      endDate: education.getEndDate()
+
+    });
   }
 
   //experience methods
@@ -117,7 +133,15 @@ export class DataService {
   }
 
   editExperience(experience: Experience): Observable<any> {
-    return this.http.put(`${this.backendUrl}/experience/edit`, experience);
+    return this.http.put(`${this.backendUrl}/experience/edit`, {
+      experienceId: experience.getId(),
+      institution: experience.getInstitution(),
+      position: experience.getPosition(),
+      description: experience.getDescription(),
+      startDate: experience.getStartDate(),
+      endDate: experience.getEndDate()
+
+    });
   }
 
   //skills methods
@@ -135,7 +159,13 @@ export class DataService {
   }
 
   editSkill(skill: Skill): Observable<any> {
-    return this.http.put(`${this.backendUrl}/skill/edit`, skill);
+    return this.http.put(`${this.backendUrl}/skill/edit`, {
+      skillId: skill.getId(),
+      name: skill.getName(),
+      icon: skill.getIcon(),
+      description: skill.getDescription(),
+      isSoft: skill.getIsSoft()
+    });
   }
   
   //project methods
@@ -153,7 +183,13 @@ export class DataService {
   }
 
   editProject(project: Project): Observable<any> {
-    return this.http.put(`${this.backendUrl}/project/edit`, project);
+    return this.http.put(`${this.backendUrl}/project/edit`, {
+      projectId: project.getId(),
+      name: project.getName(),
+      description: project.getDescription(),
+      picture: project.getPicture(),
+      url: project.getUrl()
+    });
   }
 
 
@@ -172,7 +208,12 @@ export class DataService {
   }
 
   editNetwork(network: Network): Observable<any> {
-    return this.http.put(`${this.backendUrl}/network/edit`, network);
+    return this.http.put(`${this.backendUrl}/network/edit`, {
+      networkId: network.getId(),
+      name: network.getName(),
+      icon: network.getIcon(),
+      url: network.getUrl()
+    });
   }
 
 

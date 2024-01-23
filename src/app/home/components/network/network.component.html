@@ -11,13 +11,14 @@
 
     <div class="row d-flex justify-content-evenly">
 
-        <div *ngFor="let network of networks"
+        <div *ngFor="let network of networks; let i = index"
         class="col-ms-6 col-md-3 d-flex flex-column align-items-center network-item mt-2">
             <div class="network-icon-container">
                 <i [ngClass]="network.getIcon()"></i>
             </div>
             <div class="mt-2 d-flex justify-content-evenly">
-                <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editNetwork">
+                <button (click)="changeSelectedNetwork(i)"
+                class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editNetwork">
                     <i class="fa fa-pencil"></i>
                 </button>
                 <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteNetwork">
@@ -34,3 +35,4 @@
 
 <!--MODALS-->
 <app-create-network></app-create-network>
+<app-edit-network [networkToEdit]="selectedNetwork"></app-edit-network>

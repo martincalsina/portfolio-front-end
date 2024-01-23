@@ -10,4 +10,10 @@ export class NetworkComponent {
 
   @Input() networks?: Network[];
 
+  selectedNetwork?: Network;
+
+  changeSelectedNetwork(index: number): void {
+    this.selectedNetwork = this.networks![index];
+  }
+
 }

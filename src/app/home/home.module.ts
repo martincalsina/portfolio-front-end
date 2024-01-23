@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DATE_PIPE_DEFAULT_TIMEZONE, DatePipe } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './components/home/home.component';
@@ -18,6 +18,11 @@ import { CreateSkillComponent } from './modals/skills/create-skill/create-skill.
 import { CreateProjectComponent } from './modals/projects/create-project/create-project.component';
 import { CreateNetworkComponent } from './modals/network/create-network/create-network.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditEducationComponent } from './modals/education/edit-education/edit-education.component';
+import { EditExperienceComponent } from './modals/experience/edit-experience/edit-experience.component';
+import { EditSkillComponent } from './modals/skills/edit-skill/edit-skill.component';
+import { EditProjectComponent } from './modals/projects/edit-project/edit-project.component';
+import { EditNetworkComponent } from './modals/network/edit-network/edit-network.component';
 
 
 @NgModule({
@@ -37,12 +42,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CreateSkillComponent,
     CreateProjectComponent,
     CreateNetworkComponent,
+    EditEducationComponent,
+    EditExperienceComponent,
+    EditSkillComponent,
+    EditProjectComponent,
+    EditNetworkComponent,
   ],
   imports: [
     CommonModule,
     HomeRoutingModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  providers: [
+    DatePipe
   ]
 })
 export class HomeModule { }

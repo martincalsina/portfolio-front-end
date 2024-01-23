@@ -10,4 +10,10 @@ export class EducationComponent {
 
   @Input() educations?: Education[];
 
+  selectedEducation: Education | undefined;
+
+  changeSelectedEducation(index: number): void {
+    this.selectedEducation = this.educations![index];
+  }
+
 }

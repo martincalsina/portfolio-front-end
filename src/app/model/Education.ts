@@ -25,7 +25,7 @@ export class Education {
         return this.id;
     }
 
-    public getIntitution(): string {
+    public getInstitution(): string {
         return this.institution;
     }
 

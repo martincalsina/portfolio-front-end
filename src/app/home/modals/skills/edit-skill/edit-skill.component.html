@@ -1,0 +1,51 @@
+<div class="modal fade" id="editSkill" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form [formGroup]="skillForm!" (ngSubmit)="onSubmit()">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5">Edit Skill</h1>
+          <button type="button" class="btn-close btn-lig" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+
+          <div class="mb-3">
+            <label for="name" class="form-label">Skill name</label>
+            <input formControlName="name"
+            type="text" class="form-control" id="name" name="name" placeholder="Java Development"
+            [class.is-valid]="touchedAndValid('name')"
+            [class.is-invalid]="touchedAndInvalid('name')">
+          </div>
+          <div class="mb-3">
+            <input formControlName="isSoft"
+            class="form-check-input" type="checkbox" value="" id="isSoft" name="isSoft">
+            <label style="margin-left: 5px;" class="form-check-label" for="isSoft" checked>
+              It is a soft skill.
+            </label>
+          </div>
+          <div class="mb-3">
+            <label for="icon" class="form-label">Skill Icon</label>
+            <input formControlName="icon"
+            type="text" class="form-control" id="icon" name="icon" placeholder="fa fa-solid fa-java"
+            [class.is-valid]="touchedAndValid('icon')"
+            [class.is-invalid]="touchedAndInvalid('icon')">
+          </div>
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea formControlName="description"
+            class="form-control" placeholder="Tell people what you know about it!" id="description"
+              name="description" style="height: 100px"
+              [class.is-valid]="touchedAndValid('description')"
+            [class.is-invalid]="touchedAndInvalid('description')"></textarea>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Understood</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

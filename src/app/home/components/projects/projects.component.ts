@@ -10,6 +10,12 @@ export class ProjectsComponent {
 
   @Input() projects?: Project[];
 
+  selectedProject?: Project;
+
+  changeSelectedProject(index: number): void {
+    this.selectedProject = this.projects![index];
+  }
+
   handleImageError(i: number): void {
         this.projects![i].setPicture("../../../../assets/martin_icon.png");
   }
