@@ -53,4 +53,8 @@ export class User {
         return this.picture;
     }
 
+    public setPicture(picture: string) {
+        this.picture = picture;
+    }
+
 }

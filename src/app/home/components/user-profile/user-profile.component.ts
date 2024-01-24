@@ -21,6 +21,10 @@ export class UserProfileComponent implements OnChanges {
   
   }
 
+  handleImageError(): void {
+    this.user?.setPicture("../../../../assets/martin_icon.png");
+  }
+
   changeTextAreaVisibility(visibility: boolean) {
     this.showTextArea = visibility;
   }

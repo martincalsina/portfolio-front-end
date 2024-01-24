@@ -1,7 +1,8 @@
 <section id="aboutme" class="container row mt-5">
     <div class="container profile-container col-md-5">
         <div class="image-container position-relative">
-            <img class="image" src="../../../../assets/dostoievski.jpg" alt="user">
+            <img class="image" [src]="user?.getPicture()" (error)="handleImageError()"
+            alt="user">
             <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
                 <button *ngIf="isLoggedIn"
                 type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editUser">
