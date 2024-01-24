@@ -18,7 +18,7 @@
 
             <ul class="skill-list list-group list-group-flush">
                 <li *ngFor="let skill of hardSkills" class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
+                    <div class="ms-2 me-auto" style="width: 100%;">
 
                         <div class="skill-name-container d-flex justify-content-between">
 
@@ -26,7 +26,7 @@
                                 <i [ngClass]="skill.getIcon()" class="skill-icon "></i> {{skill.getName()}}
                             </div>
 
-                            <div *ngIf="isLoggedIn" class="edit-delete-btns-container d-flex justify-content-evenly">
+                            <div *ngIf="isLoggedIn" class="edit-delete-btns-containe d-flex">
                                 <button 
                                 (click)="changeSelectedSkill(skill)"
                                 type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editSkill">
@@ -53,7 +53,7 @@
 
             <ul class="skill-list list-group list-group-flush">
                 <li *ngFor="let skill of softSkills" class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
+                    <div class="ms-2 me-auto" style="width: 100%;">
 
                         <div class="skill-name-container d-flex justify-content-between">
 
@@ -61,7 +61,7 @@
                                 <i [ngClass]="skill.getIcon()" class="skill-icon "></i> {{skill.getName()}}
                             </div>
 
-                            <div *ngIf="isLoggedIn" class="edit-delete-btns-container d-flex justify-content-evenly">
+                            <div *ngIf="isLoggedIn" class="edit-delete-btns-containe d-flex">
                                 <button
                                 (click)="changeSelectedSkill(skill)"
                                 type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editSkill">

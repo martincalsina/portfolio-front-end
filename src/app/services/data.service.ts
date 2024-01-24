@@ -13,7 +13,8 @@ import { Project } from '../model/Project';
 })
 export class DataService {
 
-  private backendUrl: string ='http://localhost:8080'; //local
+  //private backendUrl: string ='http://localhost:8080'; //local
+  private backendUrl: string ='https://portfolio-back-end-bfon.onrender.com'; //remote
 
   private userSubject: Subject<void> = new Subject<void>();
   private educationSubject: Subject<void> = new Subject<void>();

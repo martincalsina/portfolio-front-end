@@ -11,7 +11,6 @@ export class UserProfileComponent implements OnChanges {
 
   @Input() isLoggedIn: boolean = false;
   @Input() user?: User;
-  //public user?: User;
 
   showTextArea: boolean = false;
   editedDescription: string = "";
