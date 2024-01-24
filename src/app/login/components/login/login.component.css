@@ -1,0 +1,13 @@
+.card {
+    min-width: 50%;
+    background-color: rgba(196, 187, 187, 0.203);
+    color:rgb(245, 255, 255);
+}
+
+.card-body {
+    background-color: rgba(10, 10, 10, 0.32);
+}
+
+.form-invalid {
+    color: rgb(203, 27, 27);
+}

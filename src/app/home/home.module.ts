@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DATE_PIPE_DEFAULT_TIMEZONE, DatePipe } from '@angular/common';
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './components/home/home.component';
@@ -11,6 +11,24 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NetworkComponent } from './components/network/network.component';
+import { EditUserProfileComponent } from './modals/user-profile/edit-user-profile/edit-user-profile.component';
+import { CreateEducationComponent } from './modals/education/create-education/create-education.component';
+import { CreateExperienceComponent } from './modals/experience/create-experience/create-experience.component';
+import { CreateSkillComponent } from './modals/skills/create-skill/create-skill.component';
+import { CreateProjectComponent } from './modals/projects/create-project/create-project.component';
+import { CreateNetworkComponent } from './modals/network/create-network/create-network.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EditEducationComponent } from './modals/education/edit-education/edit-education.component';
+import { EditExperienceComponent } from './modals/experience/edit-experience/edit-experience.component';
+import { EditSkillComponent } from './modals/skills/edit-skill/edit-skill.component';
+import { EditProjectComponent } from './modals/projects/edit-project/edit-project.component';
+import { EditNetworkComponent } from './modals/network/edit-network/edit-network.component';
+import { DeleteEducationComponent } from './modals/education/delete-education/delete-education.component';
+import { DeleteExperienceComponent } from './modals/experience/delete-experience/delete-experience.component';
+import { DeleteSkillComponent } from './modals/skills/delete-skill/delete-skill.component';
+import { DeleteProjectComponent } from './modals/projects/delete-project/delete-project.component';
+import { DeleteNetworkComponent } from './modals/network/delete-network/delete-network.component';
+import { AboutmeTextareaComponent } from './components/aboutme-textarea/aboutme-textarea.component';
 
 
 @NgModule({
@@ -23,11 +41,33 @@ import { NetworkComponent } from './components/network/network.component';
     SkillsComponent,
     ProjectsComponent,
     FooterComponent,
-    NetworkComponent
+    NetworkComponent,
+    EditUserProfileComponent,
+    CreateEducationComponent,
+    CreateExperienceComponent,
+    CreateSkillComponent,
+    CreateProjectComponent,
+    CreateNetworkComponent,
+    EditEducationComponent,
+    EditExperienceComponent,
+    EditSkillComponent,
+    EditProjectComponent,
+    EditNetworkComponent,
+    DeleteEducationComponent,
+    DeleteExperienceComponent,
+    DeleteSkillComponent,
+    DeleteProjectComponent,
+    DeleteNetworkComponent,
+    AboutmeTextareaComponent,
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers: [
+    DatePipe
   ]
 })
 export class HomeModule { }

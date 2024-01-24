@@ -1,0 +1,9 @@
+.text-area-container {
+    width: 100%;
+}
+
+textarea {
+    width: 100%;
+    background-color: rgba(32, 31, 31, 0.696);
+    border-radius: 5px;
+}

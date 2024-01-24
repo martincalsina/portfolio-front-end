@@ -1,20 +1,51 @@
 <section id="aboutme" class="container row mt-5">
     <div class="container profile-container col-md-5">
-        <div class="image-container">
-            <img class="image" src="../../../../assets/dostoievski.jpg" alt="user">
+        <div class="image-container position-relative">
+            <img class="image" [src]="user?.getPicture()" (error)="handleImageError()"
+            alt="user">
+            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
+                <button *ngIf="isLoggedIn"
+                type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editUser">
+                    <i class="fa fa-solid fa-pencil"></i>
+                </button>              
+            </div>
         </div>
         <div class="name-container">
-            <h1>Username</h1>
+            <h1>{{user?.getName()}}</h1>
         </div>
         <div class="headline-container">
-            <h2>Headline</h2>
+            <h2>{{user?.getHeadline()}}</h2>
         </div>
     </div>
     <div class="container aboutme-container col-md-7">
-        <h3 class="mt-1">About Me</h3>
+        <div class="aboutme-title d-flex">
+            <h3 class="">About Me</h3>
+            <div class="d-flex justify-content-between">
+                <button *ngIf="isLoggedIn && !showTextArea"
+                (click)="changeTextAreaVisibility(true)" type="button" class="btn btn-success">
+                    <i class="fa fa-solid fa-pencil"></i>
+                 </button>
+                 <button *ngIf="isLoggedIn && showTextArea"
+                 (click)="editDescription()" type="button" class="btn btn-success">
+                     <i class="fa fa-solid fa-check"></i>
+                 </button>
+                 <button *ngIf="isLoggedIn && showTextArea"
+                  (click)="changeTextAreaVisibility(false)" type="button" class="btn btn-danger">
+                     <i class="fa fa-solid fa-xmark"></i>
+                 </button>
+            </div>
+        </div>     
         <hr class="section-separator">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi ab est maiores! Totam distinctio quaerat dolor quas nesciunt fugiat! Obcaecati voluptatum perferendis quaerat distinctio incidunt ad aspernatur enim doloremque nihil?
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi obcaecati praesentium quod aliquid ad, placeat, ullam nisi error aliquam esse provident harum adipisci odio ipsam aut eius perferendis dolores perspiciatis.
+        <p class="text-break" *ngIf="!showTextArea">
+            {{user?.getDescription()}}
         </p>
+        <app-aboutme-textarea *ngIf="showTextArea"
+         [descriptionToEdit]="user!.getDescription()"
+         (updateDescription)="changeEditedDescription($event)"
+         ></app-aboutme-textarea>
     </div>
 </section>
+
+
+<!--MODALS--->
+<app-edit-user-profile [userToEdit]="user"></app-edit-user-profile>

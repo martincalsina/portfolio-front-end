@@ -1,32 +1,35 @@
 <section id="network" class="container mt-5">
 
-    <h3>Network</h3>
+    <div class="network-title d-flex justify-content-between">
+        <h3>Network</h3>
+        <button *ngIf="isLoggedIn"
+        type="button" class="btn btn-add btn-warning" data-bs-toggle="modal" data-bs-target="#addNetwork">
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
 
     <hr class="section-separator">
 
     <div class="row d-flex justify-content-evenly">
 
-        <div class="col-ms-6 col-md-3 network-item mt-2">
-            <div class="network-icon-container bg-dark">
-                <i class="fa fa-github text-light"></i>
-            </div>
-        </div>
-
-        <div class="col-ms-6  col-md-3 network-item mt-2">
-            <div class="network-icon-container bg-primary">
-                <i class="fa fa-linkedin text-ligth"></i>
-            </div>
-        </div>
-
-        <div class="col-ms-6  col-md-3 network-item mt-2">
+        <div *ngFor="let network of networks"
+        class="col-ms-6 col-md-3 d-flex flex-column align-items-center network-item mt-2">
             <div class="network-icon-container">
-                <i class="fa fa-envelope text-ligth"></i>
+                <a [href]="network.getUrl()" target="_blank">
+                    <i [ngClass]="network.getIcon()"></i>
+                </a>
             </div>
-        </div>
-
-        <div class="col-ms-6 col-md-3 network-item mt-2">
-            <div class="network-icon-container bg-light">
-                <i class="fa fa-telegram text-primary"></i>
+            <div *ngIf="isLoggedIn" class="mt-2 d-flex justify-content-evenly">
+                <button 
+                (click)="changeSelectedNetwork(network)"
+                class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editNetwork">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                <button
+                (click)="changeSelectedNetwork(network)"
+                class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteNetwork">
+                    <i class="fa fa-trash"></i>
+                </button>
             </div>
         </div>
 
@@ -35,3 +38,8 @@
     </div>
 
 </section>
+
+<!--MODALS-->
+<app-create-network></app-create-network>
+<app-edit-network [networkToEdit]="selectedNetwork"></app-edit-network>
+<app-delete-network [networkToDelete]="selectedNetwork"></app-delete-network>

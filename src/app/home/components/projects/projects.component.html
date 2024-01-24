@@ -1,83 +1,46 @@
 <section id="projects" class="container mt-5">
 
-    <h3>Projects</h3>
+    <div class="projects-title d-flex justify-content-between">
+        <h3>Projects</h3>
+        <button *ngIf="isLoggedIn"
+        type="button" class="btn btn-add btn-warning" data-bs-toggle="modal" data-bs-target="#addProject">
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
 
     <hr class="section-separator">
 
     <div class="row row-cols-1 row-cols-md-3 mt-1 g-4">
 
-        <div class="col">
+        <div *ngFor="let project of projects" class="col">
             <div class="card">
                 <div class="position-relative">
-                    <img src="../../../../assets/dostoievski.jpg" class="card-img-top image-hover" alt="...">
+                    <img [src]="project.getPicture()" class="card-img-top image-hover"
+                    (error)="handleImageError(project)">
                     <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-                        <h5 class="card-title text-white">Gym Workout Manager</h5>
+                        <h5 class="card-title text-white">{{project.getName()}}</h5>
                     </div>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">blsbabablalbal</p>
+                    <p class="card-text">{{project.getDescription()}}</p>
                 </div>
                 <div class="card-footer d-flex justify-content-evenly">
                     <div class="btn-group" role="group">
+                        <a [href]="project.getUrl()">
                         <button type="button" class="btn btn-outline-purple">See Repository</button>
-                        <button type="button" class="btn btn-outline-purple">See Project</button>
+                        </a>
                     </div>
-                </div>            
-            </div>
-        </div>
-
-        <div class="col">
-            <div class="card">
-                <div class="position-relative">
-                    <img src="../../../../assets/dostoievski.jpg" class="card-img-top image-hover" alt="...">
-                    <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-                        <h5 class="card-title text-white">Gym Workout Manager</h5>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">blsbabablalbal</p>
-                </div>
-                <div class="card-footer d-flex justify-content-evenly">
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-outline-purple">See Repository</button>
-                        <button type="button" class="btn btn-outline-purple">See Project</button>
-                    </div>
-                </div>            
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="position-relative">
-                    <img src="../../../../assets/dostoievski.jpg" class="card-img-top image-hover" alt="...">
-                    <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-                        <h5 class="card-title text-white">Gym Workout Manager</h5>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">blsbabablalbal</p>
-                </div>
-                <div class="card-footer d-flex justify-content-evenly">
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-outline-purple">See Repository</button>
-                    </div>
-                </div>            
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="position-relative">
-                    <img src="../../../../assets/dostoievski.jpg" class="card-img-top image-hover" alt="...">
-                    <div class="card-img-overlay d-flex flex-column justify-content-center align-items-center">
-                        <h5 class="card-title text-white">Gym Workout Manager</h5>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">blsbabablalbal</p>
-                </div>
-                <div class="card-footer d-flex justify-content-evenly">
-                    <div class="btn-group" role="group">
-                        <button type="button" class="btn btn-outline-purple">See Repository</button>
-                        <button type="button" class="btn btn-outline-purple">See Project</button>
+                    <div *ngIf="isLoggedIn" class="btn-group" role="group">
+                        <button 
+                        (click)="changeSelectedProject(project)"
+                        type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editProject">
+                            <i class="fa fa-pencil"></i>
+                        </button>
+                        <button
+                        (click)="changeSelectedProject(project)"
+                        type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteProject">
+                            <i class="fa fa-trash"></i>
+                        </button>
                     </div>
                 </div>            
             </div>
@@ -88,3 +51,9 @@
       </div>
 
 </section>
+
+
+<!--MODALS-->
+<app-create-project></app-create-project>
+<app-edit-project [projectToEdit]="selectedProject"></app-edit-project>
+<app-delete-project [projectToDelete]="selectedProject"></app-delete-project>

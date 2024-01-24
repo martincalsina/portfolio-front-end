@@ -1,6 +1,12 @@
 <section id="skills" class="container">
 
-    <h3>Skills</h3>
+    <div class="skills-title d-flex justify-content-between">
+        <h3>Skills</h3>
+        <button *ngIf="isLoggedIn"
+        type="button" class="btn btn-add btn-warning" data-bs-toggle="modal" data-bs-target="#addSkill">
+            <i class="fa fa-plus"></i>
+        </button>
+    </div>
 
     <hr class="section-separator">
 
@@ -11,22 +17,30 @@
             <h5>Technical Skills</h5>
 
             <ul class="skill-list list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="skill-name fw-bold"> 
-                            <i class="skill-icon fa fa-solid fa-java text-warning"></i> Java Backend Development
+                <li *ngFor="let skill of hardSkills" class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto" style="width: 100%;">
+
+                        <div class="skill-name-container d-flex justify-content-between">
+
+                            <div class="skill-name fw-bold"> 
+                                <i [ngClass]="skill.getIcon()" class="skill-icon "></i> {{skill.getName()}}
+                            </div>
+
+                            <div *ngIf="isLoggedIn" class="edit-delete-btns-containe d-flex">
+                                <button 
+                                (click)="changeSelectedSkill(skill)"
+                                type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editSkill">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                                <button 
+                                (click)="changeSelectedSkill(skill)"
+                                type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteSkill">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+
                         </div>
-                        <p class="skill-description text-wrap">
-                            API Rest using Spring Boot and MVC pattern 
-                        </p>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="skill-name fw-bold"> 
-                            <i class="skill-icon  fa fa-solid fa-angular text-danger"></i> Angular Frontend Development
-                        </div>
-                        <p class="skill-description text-wrap">la wea fome</p>
+                        <p class="skill-description text-wrap">{{skill.getDescription()}}</p>
                     </div>
                 </li>
             </ul>
@@ -38,20 +52,30 @@
             <h5>Soft Skills</h5>
 
             <ul class="skill-list list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="skill-name fw-bold"> 
-                            <i class="skill-icon  fa fa-regular fa-comments"></i> English
+                <li *ngFor="let skill of softSkills" class="list-group-item d-flex justify-content-between align-items-start">
+                    <div class="ms-2 me-auto" style="width: 100%;">
+
+                        <div class="skill-name-container d-flex justify-content-between">
+
+                            <div class="skill-name fw-bold"> 
+                                <i [ngClass]="skill.getIcon()" class="skill-icon "></i> {{skill.getName()}}
+                            </div>
+
+                            <div *ngIf="isLoggedIn" class="edit-delete-btns-containe d-flex">
+                                <button
+                                (click)="changeSelectedSkill(skill)"
+                                type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#editSkill">
+                                    <i class="fa fa-pencil"></i>
+                                </button>
+                                <button
+                                (click)="changeSelectedSkill(skill)"
+                                type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteSkill">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </div>
+
                         </div>
-                        <p class="skill-description text-wrap"> Conversational basldansfnalsd </p>
-                    </div>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-start">
-                    <div class="ms-2 me-auto">
-                        <div class="skill-name fw-bold"> 
-                            <i class="skill-icon  fa fa-solid fa-school"></i> Universidad de Buenos Aires
-                        </div>
-                        <p class="skill-description text-wrap">la wea fome</p>
+                        <p class="skill-description text-wrap">{{skill.getDescription()}}</p>
                     </div>
                 </li>
             </ul>
@@ -61,3 +85,8 @@
     </div>
 
 </section>
+
+<!--MODALS-->
+<app-create-skill></app-create-skill>
+<app-edit-skill [skillToEdit]="selectedSkill"></app-edit-skill>
+<app-delete-skill [skillToDelete]="selectedSkill"></app-delete-skill>

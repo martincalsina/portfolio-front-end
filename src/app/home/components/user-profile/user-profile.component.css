@@ -41,6 +41,14 @@ h1, h2 {
     transform: scale(1.05);
 }
 
+.aboutme-title {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
 .section-separator {
     height: 2px;
 }
+
+/*pencil edit*/
