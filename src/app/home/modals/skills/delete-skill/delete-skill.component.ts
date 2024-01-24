@@ -15,11 +15,15 @@ export class DeleteSkillComponent {
 
   deleteSkill() {
 
+    this.dataService.getLoadingSubject().next(true);
+
     this.dataService.deleteSkill(this.skillToDelete!.getId()).subscribe(r => {
       console.log("The skill was successfully deleted", r);
       this.dataService.getSkillsSubject().next();
+      this.dataService.getLoadingSubject().next(false);
     }, error => {
       console.log("The skill couldn't been deleted", error);
+      this.dataService.getLoadingSubject().next(false);
     }); 
 
   }

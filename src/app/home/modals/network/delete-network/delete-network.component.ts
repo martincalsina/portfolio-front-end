@@ -15,13 +15,17 @@ export class DeleteNetworkComponent {
 
   deleteNetwork() {
 
+    this.dataService.getLoadingSubject().next(true);
+
     this.dataService.deleteNetwork(this.networkToDelete!.getId()).subscribe(r =>{
 
       console.log("The network was deleted successfully", r);
       this.dataService.getNetworkSubject().next();
+      this.dataService.getLoadingSubject().next(false);
       
     }, error => {
       console.log("The network couldn't been deleted", error);
+      this.dataService.getLoadingSubject().next(false);
     });
 
   }

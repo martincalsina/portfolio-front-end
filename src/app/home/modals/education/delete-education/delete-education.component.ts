@@ -17,11 +17,15 @@ export class DeleteEducationComponent {
 
   deleteEducation() {
 
+    this.dataService.getLoadingSubject().next(true);
+
     this.dataService.deleteEducation(this.educationToDelete!.getId()).subscribe(r => {
       console.log("The education was successfully deleted", r);
       this.dataService.getEducationSubject().next();
+      this.dataService.getLoadingSubject().next(false);
     }, error => {
       console.log("The education couldn't been deleted", error);
+      this.dataService.getLoadingSubject().next(false);
     }); 
 
   }

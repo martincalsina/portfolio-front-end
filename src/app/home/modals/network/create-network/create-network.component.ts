@@ -34,6 +34,8 @@ export class CreateNetworkComponent {
   onSubmit(): void {
     if (this.networkForm?.valid) {
 
+      this.dataService.getLoadingSubject().next(true);
+
       console.log(this.networkForm?.value);
 
       const formValues = this.networkForm.value;
@@ -57,8 +59,10 @@ export class CreateNetworkComponent {
         console.log("Network successfully created", r);
         this.dataService.getNetworkSubject().next();
         this.networkForm?.reset;
+        this.dataService.getLoadingSubject().next(false);
       }, error => {
         console.log("The network couldn't been created", error);
+        this.dataService.getLoadingSubject().next(false);
       });
 
     } else {

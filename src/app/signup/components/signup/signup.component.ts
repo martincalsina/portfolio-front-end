@@ -58,7 +58,7 @@ export class SignupComponent implements OnInit {
   
       if (this.signupForm!.valid) {
   
-        //this.dataService.getLoadingScreenSubject().next(true);
+        this.dataService.getLoadingSubject().next(true);
   
         console.log('Valid form', this.signupForm!.value);
 
@@ -86,13 +86,13 @@ export class SignupComponent implements OnInit {
               console.log("User created", r);
   
               this.userCreated = true;
-  
-              //this.dataService.getLoadingScreenSubject().next(false);
 
               sessionStorage.setItem("userEmail", r.email);
               sessionStorage.setItem("userPassword", r.password);
               
               const userId = r.id;
+
+              this.dataService.getLoadingSubject().next(false);
   
               //I give a bit of time to the user to see that its account was created
               setTimeout(() => {
@@ -100,18 +100,23 @@ export class SignupComponent implements OnInit {
                 this.router.navigate([`/home/${userId}`]);
               }, 3000);
   
+            }, error=> {
+              console.log("Error", error);
+              this.dataService.getLoadingSubject().next(false);
             });
   
           } else {
   
             this.emailAlreadyInUse = true;
             console.log("The given username is already in use.");    
+            this.dataService.getLoadingSubject().next(false);
        
           }
           
         }, error => {
 
           console.log("The user couldn't been created", error);
+          this.dataService.getLoadingSubject().next(false);
   
         });
 

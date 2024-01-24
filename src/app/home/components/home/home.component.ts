@@ -42,6 +42,8 @@ export class HomeComponent implements OnInit{
       this.userId = params['id'];
       console.log('User ID:', this.userId);
 
+      this.dataService.getLoadingSubject().next(true);
+
       this.dataService.getUserById(this.userId).subscribe(data => {
 
         //console.log("user data:", data);
@@ -65,9 +67,12 @@ export class HomeComponent implements OnInit{
         sessionStorage.setItem("userId", this.userId?.toString());
         this.checkIfLogged(this.userId);
 
+        this.dataService.getLoadingSubject().next(false);
+
       }, error => {
         console.log("There is no user with the given id", error);
         this.router.navigate(['/error404']);
+        this.dataService.getLoadingSubject().next(false);
       });
 
     });
@@ -130,9 +135,14 @@ export class HomeComponent implements OnInit{
 
     this.dataService.getUserSubject().subscribe(() => {
 
+      this.dataService.getLoadingSubject().next(true);
+
       this.dataService.getUserById(this.userId).subscribe(data => {
         this.userData = this.getUser(data);
         console.log("User data was updated");
+        this.dataService.getLoadingSubject().next(false);
+      }, error => {
+        this.dataService.getLoadingSubject().next(false);
       });
       
     }) 
@@ -143,9 +153,14 @@ export class HomeComponent implements OnInit{
 
     this.dataService.getEducationSubject().subscribe(() => {
 
+      this.dataService.getLoadingSubject().next(true);
+
       this.dataService.listEducationByUserId(this.userId).subscribe(data => {
         this.educationData = this.getEducationData(data);
         console.log("Education data was updated");
+        this.dataService.getLoadingSubject().next(false);
+      }, error => {
+        this.dataService.getLoadingSubject().next(false);
       });
       
     }) 
@@ -156,9 +171,16 @@ export class HomeComponent implements OnInit{
 
     this.dataService.getExperienceSubject().subscribe(() => {
 
+
+      this.dataService.getLoadingSubject().next(true);
+
       this.dataService.listExperienceByUserId(this.userId).subscribe(data => {
+        
         this.experienceData = this.getExperienceData(data);
         console.log("Experience data was updated");
+        this.dataService.getLoadingSubject().next(false);
+      }, error => {
+        this.dataService.getLoadingSubject().next(false);
       });
       
     }) 
@@ -169,9 +191,14 @@ export class HomeComponent implements OnInit{
 
     this.dataService.getSkillsSubject().subscribe(() => {
 
+      this.dataService.getLoadingSubject().next(true);
+
       this.dataService.listSkillByUserId(this.userId).subscribe(data => {
         this.skillsData = this.getSkillData(data);
         console.log("Skills data was updated");
+        this.dataService.getLoadingSubject().next(false);
+      }, error => {
+        this.dataService.getLoadingSubject().next(false);
       });
       
     }) 
@@ -182,9 +209,14 @@ export class HomeComponent implements OnInit{
 
     this.dataService.getProjectsSubject().subscribe(() => {
 
+      this.dataService.getLoadingSubject().next(true);
+
       this.dataService.listProjectByUserId(this.userId).subscribe(data => {
         this.projectsData = this.getProjectData(data);
         console.log("Projects data was updated");
+        this.dataService.getLoadingSubject().next(false);
+      }, error =>{
+        this.dataService.getLoadingSubject().next(false);
       });
       
     }) 
@@ -195,9 +227,14 @@ export class HomeComponent implements OnInit{
 
     this.dataService.getNetworkSubject().subscribe(() => {
 
+      this.dataService.getLoadingSubject().next(true);
+
       this.dataService.listNetworkByUserId(this.userId).subscribe(data => {
         this.networkData = this.getNetworkData(data);
         console.log("Network data was updated");
+        this.dataService.getLoadingSubject().next(false);
+      }, error => {
+        this.dataService.getLoadingSubject().next(false);
       });
       
     }) 

@@ -15,11 +15,15 @@ export class DeleteProjectComponent {
 
   deleteProject() {
 
+    this.dataService.getLoadingSubject().next(true);
+
     this.dataService.deleteProject(this.projectToDelete!.getId()).subscribe(r => {
       console.log("The project was deleted successfully", r);
       this.dataService.getProjectsSubject().next();
+      this.dataService.getLoadingSubject().next(false);
     }, error => {
       console.log("The project couldn't been deleted.", error);
+      this.dataService.getLoadingSubject().next(false);
     });
 
   }

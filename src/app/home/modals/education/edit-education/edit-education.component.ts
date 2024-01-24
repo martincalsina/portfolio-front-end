@@ -67,6 +67,8 @@ export class EditEducationComponent implements OnInit, OnChanges {
     
     if (this.educationForm?.valid) {
 
+      this.dataService.getLoadingSubject().next(true);
+
       console.log(this.educationForm?.value);
 
       const formValues = this.educationForm.value;
@@ -92,8 +94,10 @@ export class EditEducationComponent implements OnInit, OnChanges {
         console.log("Education successfully edited", r);
         this.dataService.getEducationSubject().next();
         this.educationForm?.reset;
+        this.dataService.getLoadingSubject().next(false);
       }, error => {
         console.log("The education couldn't been edited", error);
+        this.dataService.getLoadingSubject().next(false);
       });
 
     } else {

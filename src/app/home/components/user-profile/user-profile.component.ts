@@ -37,6 +37,7 @@ export class UserProfileComponent implements OnChanges {
   editDescription() {
 
     this.changeTextAreaVisibility(false);
+    this.dataService.getLoadingSubject().next(true);
 
     setTimeout(() => {
       this.user?.setDescription(this.editedDescription);
@@ -44,8 +45,10 @@ export class UserProfileComponent implements OnChanges {
     this.dataService.editUser(this.user!).subscribe( r => {
       console.log("The description was successfully edited", r);
       this.dataService.getUserSubject().next();
+      this.dataService.getLoadingSubject().next(false);
     }, error => {
       console.log("The description couldn't been edited", error);
+      this.dataService.getLoadingSubject().next(false);
     }) 
 
     }, 1000);

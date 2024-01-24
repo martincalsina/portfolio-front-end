@@ -48,6 +48,8 @@ export class EditUserProfileComponent implements OnInit, OnChanges{
 
     if (this.userForm?.valid) {
 
+      this.dataService.getLoadingSubject().next(true);
+
       const formValues = this.userForm.value;
 
       let user: User = new User(
@@ -63,8 +65,10 @@ export class EditUserProfileComponent implements OnInit, OnChanges{
       this.dataService.editUser(user).subscribe(r => {
         console.log("The user was successfully updated", r);
         this.dataService.getUserSubject().next();
+        this.dataService.getLoadingSubject().next(false);
       }, error => {
         console.log("There was an error while trying to edit the user", error);
+        this.dataService.getLoadingSubject().next(false);
       });
 
     } else {

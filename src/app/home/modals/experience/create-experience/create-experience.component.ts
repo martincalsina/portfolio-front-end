@@ -38,6 +38,8 @@ export class CreateExperienceComponent {
   onSubmit(): void {
     if (this.experienceForm?.valid) {
 
+      this.dataService.getLoadingSubject().next(true);
+
       console.log(this.experienceForm?.value);
 
       const formValues = this.experienceForm.value;
@@ -63,8 +65,10 @@ export class CreateExperienceComponent {
         console.log("Experience successfully created", r);
         this.dataService.getExperienceSubject().next();
         this.experienceForm?.reset;
+        this.dataService.getLoadingSubject().next(false);
       }, error => {
         console.log("The experience couldn't been created", error);
+        this.dataService.getLoadingSubject().next(false);
       });
 
     } else {

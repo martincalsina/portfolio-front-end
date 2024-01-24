@@ -53,6 +53,8 @@ export class EditSkillComponent implements OnInit, OnChanges {
 
     if (this.skillForm?.valid) {
 
+      this.dataService.getLoadingSubject().next(true);
+
       console.log(this.skillForm?.value);
 
       const formValues = this.skillForm.value;
@@ -74,8 +76,10 @@ export class EditSkillComponent implements OnInit, OnChanges {
         console.log("Skill successfully edited", r);
         this.dataService.getSkillsSubject().next();
         this.skillForm?.reset();
+        this.dataService.getLoadingSubject().next(false);
       }, error => {
         console.log("The skill couldn't been edited", error);
+        this.dataService.getLoadingSubject().next(false);
       });
 
     } else {

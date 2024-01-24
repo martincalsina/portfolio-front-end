@@ -45,6 +45,8 @@ export class EditNetworkComponent implements OnInit, OnChanges{
   onSubmit(): void {
     if (this.networkForm?.valid) {
 
+      this.dataService.getLoadingSubject().next(true);
+
       console.log(this.networkForm?.value);
 
       const formValues = this.networkForm.value;
@@ -68,8 +70,10 @@ export class EditNetworkComponent implements OnInit, OnChanges{
         console.log("Network successfully edited", r);
         this.dataService.getNetworkSubject().next();
         this.networkForm?.reset;
+        this.dataService.getLoadingSubject().next(false);
       }, error => {
         console.log("The network couldn't been edited", error);
+        this.dataService.getLoadingSubject().next(false);
       });
 
     } else {

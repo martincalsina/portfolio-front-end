@@ -35,6 +35,8 @@ export class LoginComponent {
 
     if (this.loginForm?.valid) {
 
+      this.dataService.getLoadingSubject().next(true);
+
       const formValues = this.loginForm.value;
       const email = formValues.email;
       const password = formValues.password;
@@ -54,8 +56,12 @@ export class LoginComponent {
           this.loginError = true;
         }
 
+        this.dataService.getLoadingSubject().next(false);
+
       }, error => {
         console.log("An error occurred");
+        this.dataService.getLoadingSubject().next(false);
+        this.loginError = true;
       });
 
     } else {

@@ -48,6 +48,8 @@ export class EditProjectComponent implements OnInit, OnChanges {
   onSubmit(): void {
     if (this.projectForm?.valid) {
 
+      this.dataService.getLoadingSubject().next(true);
+
       console.log(this.projectForm?.value);
 
       const formValues = this.projectForm.value;
@@ -72,8 +74,10 @@ export class EditProjectComponent implements OnInit, OnChanges {
         console.log("Project successfully edited", r);
         this.dataService.getProjectsSubject().next();
         this.projectForm?.reset;
+        this.dataService.getLoadingSubject().next(false);
       }, error => {
         console.log("The project couldn't been edited", error);
+        this.dataService.getLoadingSubject().next(false);
       });
 
     } else {

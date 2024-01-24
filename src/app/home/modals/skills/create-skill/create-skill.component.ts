@@ -37,6 +37,8 @@ export class CreateSkillComponent {
 
     if (this.skillForm?.valid) {
 
+      this.dataService.getLoadingSubject().next(true);
+
       console.log(this.skillForm?.value);
 
       const formValues = this.skillForm.value;
@@ -57,9 +59,11 @@ export class CreateSkillComponent {
       this.dataService.createSkill(skill).subscribe(r => {
         console.log("Skill successfully created", r);
         this.dataService.getSkillsSubject().next();
+        this.dataService.getLoadingSubject().next(false);
         this.skillForm?.reset;
       }, error => {
         console.log("The skill couldn't been created", error);
+        this.dataService.getLoadingSubject().next(false);
       });
 
     } else {

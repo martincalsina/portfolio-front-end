@@ -39,6 +39,8 @@ export class CreateEducationComponent {
     
     if (this.educationForm?.valid) {
 
+      this.dataService.getLoadingSubject().next(true);
+
       console.log(this.educationForm?.value);
 
       const formValues = this.educationForm.value;
@@ -64,8 +66,10 @@ export class CreateEducationComponent {
         console.log("Education successfully created", r);
         this.dataService.getEducationSubject().next();
         this.educationForm?.reset;
+        this.dataService.getLoadingSubject().next(false);
       }, error => {
         console.log("The education couldn't been created", error);
+        this.dataService.getLoadingSubject().next(false);
       });
 
     } else {
