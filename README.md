@@ -10,6 +10,8 @@ Be aware that it may take up to a five minutes to process the first request (pro
 
 As I needed a way to present myself to the IT world, and my previous and older portfolio API stopped working, I decided to built a new one from zero, implementing better practices than before and also making it capable of support multiple users profiles, letting it be a service provider.
 
+To get information about the backend, you can visit the [Backend Repository](https://github.com/martincalsina/Portfolio-back-end)
+
 ## Used Technologies
 
 - Angular 17.0.6
