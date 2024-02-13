@@ -1,27 +1,23 @@
-# PortfolioFrontEnd
+# Repository for my portfolio Front end
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+## Linked to the deployed version
 
-## Development server
+https://portfolio-9c331.web.app
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Be aware that it may take up to a five minutes to process the first request (probably'll be getting the user data) to the API since I it is using a free tier of Render for the backend.
 
-## Code scaffolding
+## Description
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+As I needed a way to present myself to the IT world, and my previous and older portfolio API stopped working, I decided to built a new one from zero, implementing better practices than before and also making it capable of support multiple users profiles, letting it be a service provider.
 
-## Build
+## Used Technologies
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular 17.0.6
+- Rxjs 7.8.1
+- Bootstrap 5.3.2
+- Fontawesome 4.7.0
+- Typescript 5.2.2
 
-## Running unit tests
+## Features and Principal functionalities
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The project allows user to create their own portfolio by signing up in a page dedicated to it and then logging into their accounts. There, they will be able to set a profile pic, their names, a quick aboutme description, a headline and a list of what one could expect in the corresponding education, experience, skills, projects and network sections. For each of them, the CRUD opperations are support.
